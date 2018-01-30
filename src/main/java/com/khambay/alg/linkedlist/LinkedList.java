@@ -251,6 +251,28 @@ public class LinkedList {
         return p2;
     }
 
+    public void removeDups() throws Exception {
+        if(head == null)
+            throw new Exception("Error: Empty list");
+
+        if(head.next == null) {
+            return;
+        }
+
+        Node n = head;
+        while(n != null) {
+            Node j = n;
+            while(j.next != null) {
+                if(j.next.data == n.data) {
+                    j.next = j.next.next;
+                    break;
+                }
+                j = j.next;
+            }
+            n= n.next;
+        }
+    }
+
     public void printList(Node n) {
         Node it = n;
         StringBuffer buf = new StringBuffer();
@@ -383,5 +405,12 @@ public class LinkedList {
         nth = l.valueNthFromEndGabe(3);
         if(nth == null || nth.data != 2)
             System.out.println("nth from last failed");
+
+        System.out.println("Remove dups");
+        l.add(2, 1);
+        l.add(3, 4);
+        l.printList(l.topFront());
+        l.removeDups();
+        l.printList(l.topFront());
     }
 }
