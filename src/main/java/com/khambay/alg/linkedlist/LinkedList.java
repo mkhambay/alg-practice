@@ -265,9 +265,10 @@ public class LinkedList {
             while(j.next != null) {
                 if(j.next.data == n.data) {
                     j.next = j.next.next;
-                    break;
                 }
-                j = j.next;
+                else {
+                    j = j.next;
+                }
             }
             n= n.next;
         }
@@ -409,6 +410,7 @@ public class LinkedList {
         System.out.println("Remove dups");
         l.add(2, 1);
         l.add(3, 4);
+        l.add(4, 4);
         l.printList(l.topFront());
         l.removeDups();
         l.printList(l.topFront());
