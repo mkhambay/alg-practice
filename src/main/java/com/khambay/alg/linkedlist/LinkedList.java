@@ -331,6 +331,73 @@ public class LinkedList {
         return true;
     }
 
+    public Node partition(Node node, int x) {
+        Node beforeStart = null;
+        Node beforeEnd = null;
+        Node afterStart = null;
+        Node afterEnd = null;
+
+        while(node != null) {
+            Node next = node.next;
+            node.next = null;
+
+            if(node.data < x) {
+                //Insert node into end of before list
+                if(beforeStart == null) {
+                    beforeStart = node;
+                    beforeEnd = beforeStart;
+                }
+                else {
+                    beforeEnd.next = node;
+                    beforeEnd = node;
+                }
+            }
+            else {
+                //Insert node into end of after list
+                if(afterStart == null) {
+                    afterStart = node;
+                    afterEnd = afterStart;
+                }
+                else {
+                    afterEnd.next = node;
+                    afterEnd = node;
+                }
+            }
+            node = next;
+        }
+
+        if(beforeStart == null) {
+            return afterStart;
+        }
+
+        //Merge list
+        beforeEnd.next = afterStart;
+        return beforeStart;
+    }
+
+    public Node partitionOptimal(Node node, int x) {
+        Node head = node;
+        Node tail = node;
+
+        while(node != null) {
+            Node next = node.next;
+            if(node.data < x) {
+                //Insert node at head
+                node.next = head;
+                head = node;
+            }
+            else {
+                //Insert node at tail
+                tail.next = node;
+                tail = node;
+            }
+            node = next;
+        }
+        tail.next = null;
+
+        return head;
+    }
+
     public void printList(Node n) {
         Node it = n;
         StringBuffer buf = new StringBuffer();
@@ -493,5 +560,31 @@ public class LinkedList {
         l.printList(l.topFront());
         l.deleteNode(l.find(9));
         l.printList(l.topFront());
+
+        System.out.println("Partition");
+        LinkedList l1 = new LinkedList(3);
+        l1.pushBack(5);
+        l1.pushBack(8);
+        l1.pushBack(5);
+        l1.pushBack(10);
+        l1.pushBack(2);
+        l1.pushBack(1);
+        l1.printList(l1.topFront());
+        l1.partition(l1.topFront(), 5);
+        l1.printList(l1.topFront());
+
+        System.out.println("Partition Optimal");
+        LinkedList l2 = new LinkedList(3);
+        l2.pushBack(5);
+        l2.pushBack(8);
+        l2.pushBack(5);
+        l2.pushBack(10);
+        l2.pushBack(2);
+        l2.pushBack(1);
+        l2.printList(l2.topFront());
+        Node p = l2.partitionOptimal(l2.topFront(), 5);
+        l2.printList(p);
+
+
     }
 }
