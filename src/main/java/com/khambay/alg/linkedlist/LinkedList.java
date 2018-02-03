@@ -293,6 +293,44 @@ public class LinkedList {
         }
     }
 
+    public void deleteFromMiddle() throws Exception {
+        if(head == null)
+            throw new Exception("Error: Empty list");
+
+        if(head.next == null) {
+            return;
+        }
+
+        int size = 1;
+        Node n = head;
+        Node m = head;
+        Node p = head;
+
+        while(n!=null){
+            size++;
+            if(size % 2 == 1) {
+                p = m;
+                m = m.next;
+            }
+            n = n.next;
+        }
+
+        if(p != null && p.next != null) {
+            p.next = p.next.next;
+        }
+    }
+
+    public boolean deleteNode(Node n) {
+        if(n == null || n.next == null) {
+            return false;
+        }
+
+        Node next = n.next;
+        n.data = next.data;
+        n.next = next.next;
+        return true;
+    }
+
     public void printList(Node n) {
         Node it = n;
         StringBuffer buf = new StringBuffer();
@@ -440,6 +478,20 @@ public class LinkedList {
         l.add(4, 4);
         l.printList(l.topFront());
         l.removeDupsEfficient();
+        l.printList(l.topFront());
+
+        System.out.println("Delete from middle");
+        l.add(2, 7);
+        l.add(3, 6);
+        l.add(4, 9);
+        l.add(5, 10);
+        l.printList(l.topFront());
+        l.deleteFromMiddle();
+        l.printList(l.topFront());
+
+        System.out.println("Delete node");
+        l.printList(l.topFront());
+        l.deleteNode(l.find(9));
         l.printList(l.topFront());
     }
 }
