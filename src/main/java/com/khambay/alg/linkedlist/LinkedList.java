@@ -1,6 +1,8 @@
 package com.khambay.alg.linkedlist;
 
 
+import java.util.HashSet;
+
 /**
  * Singly Linked List
  * @author Mandeep Khambay
@@ -274,6 +276,23 @@ public class LinkedList {
         }
     }
 
+    public void removeDupsEfficient() throws Exception {
+        HashSet<Integer> set = new HashSet<Integer>();
+        Node previous = null;
+        Node n = head;
+
+        while(n!= null) {
+            if(set.contains(n.data)){
+                previous.next = n.next;
+            }
+            else {
+                set.add(n.data);
+                previous = n;
+            }
+            n = n.next;
+        }
+    }
+
     public void printList(Node n) {
         Node it = n;
         StringBuffer buf = new StringBuffer();
@@ -413,6 +432,14 @@ public class LinkedList {
         l.add(4, 4);
         l.printList(l.topFront());
         l.removeDups();
+        l.printList(l.topFront());
+
+        System.out.println("Remove dups efficient");
+        l.add(2, 1);
+        l.add(3, 4);
+        l.add(4, 4);
+        l.printList(l.topFront());
+        l.removeDupsEfficient();
         l.printList(l.topFront());
     }
 }
