@@ -40,7 +40,7 @@ public class StringUnique {
 
         System.out.println("charAt 0 =" + testUnique.charAt(0));
         int val = testUnique.charAt(0);
-        System.out.println("int value charAt 0 =" + val);
+        System.out.println("int ascii value charAt 0 =" + val);
 
     }
 }
