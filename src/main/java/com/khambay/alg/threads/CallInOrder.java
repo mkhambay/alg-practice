@@ -58,18 +58,18 @@ public class CallInOrder {
         Thread c = new Thread(() -> {
                     System.out.println("Calling third");
                     foo.third();
-                });
+        });
         c.start();
 
         Thread b = new Thread(() -> {
-            System.out.println("Calling second");
+                    System.out.println("Calling second");
                     foo.second();
-                });
+        });
         b.start();
 
         Thread a = new Thread(() -> {
-            System.out.println("Calling second");
-            foo.first();
+                    System.out.println("Calling second");
+                    foo.first();
         });
         a.start();
     }
