@@ -7,6 +7,24 @@ public class DiningPhilosophers {
 
     public static int size = 3;
 
+    public void start() {
+        ChopStick[] chopsticks = new ChopStick[size + 1];
+        for (int i = 0; i < size + 1; i++) {
+            chopsticks[i] = new ChopStick();
+        }
+
+        Philosopher[] philosophers = new Philosopher[size];
+        for (int i = 0; i < size; i++) {
+            ChopStick left = chopsticks[leftOf(i)];
+            ChopStick right = chopsticks[rightOf(i)];
+            philosophers[i] = new Philosopher(i, left, right);
+        }
+
+        for (int i = 0; i < size; i++) {
+            philosophers[i].start();
+        }
+    }
+
     public static int leftOf(int i) {
         return i;
     }
@@ -15,7 +33,7 @@ public class DiningPhilosophers {
         return (i + 1) % size;
     }
 
-    static class ChopStick {
+    class ChopStick {
         private Lock lock;
 
         public ChopStick() {
@@ -31,7 +49,7 @@ public class DiningPhilosophers {
         }
     }
 
-    static class Philosopher extends Thread {
+    class Philosopher extends Thread {
         private int bites = 10;
         private ChopStick left;
         private ChopStick right;
@@ -82,20 +100,7 @@ public class DiningPhilosophers {
     }
 
     public static void main(String args[]) {
-        ChopStick[] chopsticks = new ChopStick[size + 1];
-        for (int i = 0; i < size + 1; i++) {
-            chopsticks[i] = new ChopStick();
-        }
-
-        Philosopher[] philosophers = new Philosopher[size];
-        for (int i = 0; i < size; i++) {
-            ChopStick left = chopsticks[leftOf(i)];
-            ChopStick right = chopsticks[rightOf(i)];
-            philosophers[i] = new Philosopher(i, left, right);
-        }
-
-        for (int i = 0; i < size; i++) {
-            philosophers[i].start();
-        }
+        DiningPhilosophers diningPhilosophers = new DiningPhilosophers();
+        diningPhilosophers.start();
     }
 }
