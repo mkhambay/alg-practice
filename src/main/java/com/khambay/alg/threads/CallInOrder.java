@@ -53,25 +53,24 @@ public class CallInOrder {
     }
 
     public static void main(String args[]) {
-        final Foo foo = new Foo();
+        Foo foo = new Foo();
 
-        Thread c = new Thread( new Runnable() {
-                    public void run() {foo.third();}
-                }
-        );
+        Thread c = new Thread(() -> {
+                    System.out.println("Calling third");
+                    foo.third();
+                });
         c.start();
 
-
-        Thread b = new Thread( new Runnable() {
-            public void run() {foo.second();}
-        }
-        );
+        Thread b = new Thread(() -> {
+            System.out.println("Calling second");
+                    foo.second();
+                });
         b.start();
 
-        Thread a = new Thread( new Runnable() {
-            public void run() {foo.first();}
-        }
-        );
+        Thread a = new Thread(() -> {
+            System.out.println("Calling second");
+            foo.first();
+        });
         a.start();
     }
 }
