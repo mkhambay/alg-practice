@@ -398,6 +398,7 @@ public class LinkedList {
         return head;
     }
 
+
     public void printList(Node n) {
         Node it = n;
         StringBuffer buf = new StringBuffer();
