@@ -320,7 +320,7 @@ public class LinkedList {
         }
     }
 
-    public boolean deleteNode(Node n) {
+    public boolean deleteNodeGabe(Node n) {
         if(n == null || n.next == null) {
             return false;
         }
@@ -558,7 +558,7 @@ public class LinkedList {
 
         System.out.println("Delete node");
         l.printList(l.topFront());
-        l.deleteNode(l.find(9));
+        l.deleteNodeGabe(l.find(9));
         l.printList(l.topFront());
 
         System.out.println("Partition");
@@ -584,7 +584,5 @@ public class LinkedList {
         l2.printList(l2.topFront());
         Node p = l2.partitionOptimal(l2.topFront(), 5);
         l2.printList(p);
-
-
     }
 }
