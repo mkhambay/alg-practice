@@ -1,0 +1,85 @@
+package com.khambay.alg.trees;
+
+import java.util.*;
+
+/**
+ * Graph implementation using LinkedList and Gabe's pseudocode as a guide
+ */
+public class Graph {
+
+    private LinkedList<Integer> vertices[];
+
+    public Graph(int verticesSize) {
+        this.vertices = new LinkedList[verticesSize];
+
+        for (int i = 0; i < vertices.length; ++i)
+            this.vertices[i] = new LinkedList();
+    }
+
+    public void addEdge(int startVertex, int endVertex) {
+        vertices[startVertex].add(endVertex);
+    }
+
+    public void breadthFirstSearch(int vertex) {
+        boolean visited[] = new boolean[this.vertices.length];
+        LinkedList<Integer> queue = new LinkedList<>();
+
+        visited[vertex] = true;
+        queue.add(vertex);
+
+        while (queue.size() != 0) {
+            vertex = queue.poll();
+            visit(vertex);
+
+            for(int num : vertices[vertex]) {
+                if (!visited[num]) {
+                    visited[num] = true;
+                    queue.add(num);
+                }
+            }
+        }
+    }
+
+    public void depthFirstSearch(int vertix) {
+        boolean visited[] = new boolean[vertices.length];
+        search(vertix, visited);
+    }
+
+    private void search(int vertix, boolean visited[]) {
+        visit(vertix);
+        visited[vertix] = true;
+
+        for(int num : vertices[vertix]) {
+            if (!visited[num]) {
+                search(num, visited);
+            }
+        }
+    }
+
+    public void visit(int vertix) {
+        System.out.print(vertix + " ");
+    }
+
+    public static void main(String args[]) {
+        Graph graph = new Graph(6);
+
+        //0: 1,4,5
+        //1: 4,3
+        //2: 1
+        //3: 4,2
+        graph.addEdge(0, 1);
+        graph.addEdge(0, 4);
+        graph.addEdge(0, 5);
+        graph.addEdge(1, 3);
+        graph.addEdge(2, 1);
+        graph.addEdge(3, 2);
+        graph.addEdge(1, 4);
+        graph.addEdge(3, 4);
+
+        System.out.println("BFS");
+        graph.breadthFirstSearch(0);
+
+        System.out.println("\nDFS");
+        graph.depthFirstSearch(0);
+    }
+}
