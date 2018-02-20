@@ -156,6 +156,10 @@ public class TreeNode {
         System.out.println("\n Find 6");
         TreeNode t = tree.find(6);
         System.out.println("TreeNode Data=" + t.data);
+
+        int[] arr = {1,2,3,4,5,6,7,8,9};
+        TreeNode treeMinBST = createMinimalBST(arr);
+        System.out.println("Tree=" + treeMinBST);
     }
 }
 

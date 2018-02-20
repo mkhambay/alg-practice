@@ -40,6 +40,29 @@ public class Graph {
         }
     }
 
+    public boolean routeBetweenNodes(int startVertex, int endVertex) {
+        boolean [] visited = new boolean[vertices.length];
+        LinkedList<Integer> queue = new LinkedList<>();
+
+        visited[startVertex] = true;
+        queue.add(startVertex);
+
+        while(queue.size() != 0) {
+            startVertex = queue.poll();
+
+            for(int num : vertices[startVertex]) {
+                if(num == endVertex) {
+                    return true;
+                }
+                if(!visited[num]) {
+                    visited[num] = true;
+                    queue.add(num);
+                }
+            }
+        }
+        return false;
+    }
+
     public void depthFirstSearch(int vertix) {
         boolean visited[] = new boolean[vertices.length];
         search(vertix, visited);
@@ -81,5 +104,11 @@ public class Graph {
 
         System.out.println("\nDFS");
         graph.depthFirstSearch(0);
+
+        System.out.println("\n Route between nodes 0 - 3 = ");
+        System.out.print(graph.routeBetweenNodes(0,3));
+
+        System.out.println("\n Route between nodes 5 - 3 = ");
+        System.out.print(graph.routeBetweenNodes(5,3));
     }
 }
