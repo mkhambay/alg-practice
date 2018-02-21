@@ -116,6 +116,11 @@ public class TreeNode {
         return 1 + Math.max(leftHeight, rightHeight);
     }
 
+    //4.2 Create minimal BST
+    public static TreeNode createMinimalBST(int array[]) {
+        return createMinimalBST(array, 0, array.length - 1);
+    }
+
     public static TreeNode createMinimalBST(int arr[], int start, int end){
         if (end < start) {
             return null;
@@ -127,16 +132,13 @@ public class TreeNode {
         return n;
     }
 
-    public static TreeNode createMinimalBST(int array[]) {
-        return createMinimalBST(array, 0, array.length - 1);
-    }
-
     public static ArrayList<LinkedList<TreeNode>> createLevelLinkedListDFS(TreeNode root) {
         ArrayList<LinkedList<TreeNode>> lists = new ArrayList<LinkedList<TreeNode>>();
         createLevelLinkedListDFSPreOrder(root, lists, 0);
         return lists;
     }
 
+    //4.3 List of depths
     public static void createLevelLinkedListDFSPreOrder(TreeNode root, ArrayList<LinkedList<TreeNode>> lists, int level) {
         if(root == null) {
             return;
@@ -179,6 +181,12 @@ public class TreeNode {
         return result;
     }
 
+
+    //4.4 Is Balanced
+    public static boolean isBalanced(TreeNode root) {
+        return checkHeight(root) != Integer.MIN_VALUE;
+    }
+
     public static int checkHeight(TreeNode root) {
         if (root == null) {
             return -1;
@@ -197,8 +205,63 @@ public class TreeNode {
         }
     }
 
-    public static boolean isBalanced(TreeNode root) {
-        return checkHeight(root) != Integer.MIN_VALUE;
+    //4.5 Check BST
+    public static Integer lastVisitedNode = null;
+
+    //Solution 1:
+    //If left is true, the left child value can be equal to parent
+    public static boolean checkBST(TreeNode node) {
+        return checkBSTInOrderTraversal(node, true);
+    }
+
+    public static boolean checkBSTInOrderTraversal(TreeNode n, boolean isLeft) {
+        if (n == null) {
+            return true;
+        }
+
+        //Check left node recursively
+        if (!checkBSTInOrderTraversal(n.left, true)) {
+            return false;
+        }
+
+        //Visit current node and compare value to the last visited node
+        if (lastVisitedNode != null) {
+            if (isLeft) {
+                if (n.data < lastVisitedNode) {
+                    return false;
+                }
+            } else {
+                if (n.data <= lastVisitedNode) {
+                    return false;
+                }
+            }
+        }
+        lastVisitedNode = n.data;
+
+        //Check right node recursively
+        if (!checkBSTInOrderTraversal(n.right, false)) {
+            return false;
+        }
+        return true;
+    }
+
+    //Solution 2
+    public static boolean checkBSTSolution2(TreeNode n) {
+        return checkBST(n, null, null);
+    }
+
+    public static boolean checkBST(TreeNode n, Integer min, Integer max) {
+        if (n == null) {
+            return true;
+        }
+        if ((min != null && n.data <= min) || (max != null && n.data > max)) {
+            return false;
+        }
+        if (!checkBST(n.left, min, n.data) ||
+                !checkBST(n.right, n.data, max)) {
+            return false;
+        }
+        return true;
     }
 
     public static void main(String[] args) {
@@ -246,6 +309,26 @@ public class TreeNode {
 
         root.insertInOrder(11); // Add 4 to make it unbalanced
         System.out.println("Is balanced? " + isBalanced(root));
+
+        TreeNode node;
+        boolean condition;
+        int[] array2 = {1, 2, 3, 4};
+        node = TreeNode.createMinimalBST(array2);
+        node.left.data = 2;
+        lastVisitedNode = null;
+        condition = checkBST(node);
+        System.out.println("should be true: " + condition);
+        condition = checkBSTSolution2(node);
+        System.out.println("should be true: " + condition);
+
+        int[] array3 = {1, 2, 3, 4};
+        node = TreeNode.createMinimalBST(array3);
+        node.right.data = 2;
+        lastVisitedNode = null;
+        condition = checkBST(node);
+        System.out.println("should be false: " + condition);
+        condition = checkBSTSolution2(node);
+        System.out.println("should be false: " + condition);
     }
 }
 
