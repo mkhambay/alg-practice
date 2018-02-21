@@ -7,24 +7,6 @@ public class DiningPhilosophers {
 
     public static int size = 3;
 
-    public void start() {
-        ChopStick[] chopsticks = new ChopStick[size + 1];
-        for (int i = 0; i < size + 1; i++) {
-            chopsticks[i] = new ChopStick();
-        }
-
-        Philosopher[] philosophers = new Philosopher[size];
-        for (int i = 0; i < size; i++) {
-            ChopStick left = chopsticks[leftOf(i)];
-            ChopStick right = chopsticks[rightOf(i)];
-            philosophers[i] = new Philosopher(i, left, right);
-        }
-
-        for (int i = 0; i < size; i++) {
-            philosophers[i].start();
-        }
-    }
-
     public static int leftOf(int i) {
         return i;
     }
@@ -96,6 +78,24 @@ public class DiningPhilosophers {
                 System.out.println("In eat i[" + i + "]");
                 eat();
             }
+        }
+    }
+
+    public void start() {
+        ChopStick[] chopsticks = new ChopStick[size + 1];
+        for (int i = 0; i < size + 1; i++) {
+            chopsticks[i] = new ChopStick();
+        }
+
+        Philosopher[] philosophers = new Philosopher[size];
+        for (int i = 0; i < size; i++) {
+            ChopStick left = chopsticks[leftOf(i)];
+            ChopStick right = chopsticks[rightOf(i)];
+            philosophers[i] = new Philosopher(i, left, right);
+        }
+
+        for (int i = 0; i < size; i++) {
+            philosophers[i].start();
         }
     }
 
