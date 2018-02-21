@@ -1,6 +1,9 @@
 package com.khambay.alg.trees;
 
 
+import java.util.ArrayList;
+import java.util.LinkedList;
+
 public class TreeNode {
     public int data;
     public TreeNode left, right, parent;
@@ -128,6 +131,76 @@ public class TreeNode {
         return createMinimalBST(array, 0, array.length - 1);
     }
 
+    public static ArrayList<LinkedList<TreeNode>> createLevelLinkedListDFS(TreeNode root) {
+        ArrayList<LinkedList<TreeNode>> lists = new ArrayList<LinkedList<TreeNode>>();
+        createLevelLinkedListDFSPreOrder(root, lists, 0);
+        return lists;
+    }
+
+    public static void createLevelLinkedListDFSPreOrder(TreeNode root, ArrayList<LinkedList<TreeNode>> lists, int level) {
+        if(root == null) {
+            return;
+        }
+
+        LinkedList<TreeNode> list = null;
+        if(lists.size() == level) {
+            list = new LinkedList<>();
+            lists.add(list);
+        }
+        else {
+            list = lists.get(level);
+        }
+        list.add(root);
+        createLevelLinkedListDFSPreOrder(root.left, lists, level + 1);
+        createLevelLinkedListDFSPreOrder(root.right, lists, level + 1);
+    }
+
+    public static ArrayList<LinkedList<TreeNode>> createLevelLinkedListBFS(TreeNode root) {
+        ArrayList<LinkedList<TreeNode>> result = new ArrayList<LinkedList<TreeNode>>();
+        LinkedList<TreeNode> current = new LinkedList<>();
+        if(root != null) {
+            current.add(root);
+        }
+
+        while(current.size() != 0) {
+            result.add(current);
+            LinkedList<TreeNode> parents = current;
+            current = new LinkedList<>();
+
+            for(TreeNode parent : parents) {
+                if(parent.left != null) {
+                    current.add(parent.left);
+                }
+                if(parent.right != null) {
+                    current.add(parent.right);
+                }
+            }
+        }
+        return result;
+    }
+
+    public static int checkHeight(TreeNode root) {
+        if (root == null) {
+            return -1;
+        }
+        int leftHeight = checkHeight(root.left);
+        if (leftHeight == Integer.MIN_VALUE) return Integer.MIN_VALUE;
+
+        int rightHeight = checkHeight(root.right);
+        if (rightHeight == Integer.MIN_VALUE) return Integer.MIN_VALUE;
+
+        int heightDiff = leftHeight - rightHeight;
+        if (Math.abs(heightDiff) > 1) {
+            return Integer.MIN_VALUE;
+        } else {
+            return Math.max(leftHeight, rightHeight) + 1;
+        }
+    }
+
+    public static boolean isBalanced(TreeNode root) {
+        return checkHeight(root) != Integer.MIN_VALUE;
+    }
+
     public static void main(String[] args) {
         TreeNode tree = new TreeNode(1);
         tree.left = new TreeNode(2);
@@ -160,6 +233,19 @@ public class TreeNode {
         int[] arr = {1,2,3,4,5,6,7,8,9};
         TreeNode treeMinBST = createMinimalBST(arr);
         System.out.println("Tree=" + treeMinBST);
+
+        System.out.println("createLevelLinkedListDFS");
+        ArrayList<LinkedList<TreeNode>> levelLinkedListsDFS = createLevelLinkedListDFS(treeMinBST);
+
+        System.out.println("createLevelLinkedListBFS");
+        ArrayList<LinkedList<TreeNode>> levelLinkedListsBFS = createLevelLinkedListBFS(treeMinBST);
+
+
+        TreeNode root = TreeNode.createMinimalBST(arr);
+        System.out.println("Is balanced? " + isBalanced(root));
+
+        root.insertInOrder(11); // Add 4 to make it unbalanced
+        System.out.println("Is balanced? " + isBalanced(root));
     }
 }
 
