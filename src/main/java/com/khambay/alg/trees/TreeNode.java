@@ -445,6 +445,11 @@ public class TreeNode {
         } else {
             System.out.println("t2 is not a subtree of t1");
         }
+
+        //Height of tree
+        int[] array11 = {1,2,3,4,5,6,7,8,9};
+        TreeNode root3 = TreeNode.createMinimalBST(array11);
+        System.out.println("Tree Height = " + root3.height());
     }
 }
 
