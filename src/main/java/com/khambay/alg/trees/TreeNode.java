@@ -326,6 +326,29 @@ public class TreeNode {
         return depth;
     }
 
+    //4.10 Check Subtree
+    //Solution 1
+    public static boolean containsTree(TreeNode t1, TreeNode t2) {
+        StringBuilder string1 = new StringBuilder();
+        StringBuilder string2 = new StringBuilder();
+
+        getOrderString(t1, string1);
+        getOrderString(t2, string2);
+
+        return string1.indexOf(string2.toString()) != -1;
+    }
+
+    public static void getOrderString(TreeNode node, StringBuilder sb) {
+        if (node == null) {
+            sb.append("X");             // Add null indicator
+            return;
+        }
+        sb.append(node.data);           // Add root
+        getOrderString(node.left, sb);  // Add left
+        getOrderString(node.right, sb); // Add right
+    }
+
+
     public static void main(String[] args) {
         TreeNode tree = new TreeNode(1);
         tree.left = new TreeNode(2);
@@ -409,6 +432,19 @@ public class TreeNode {
         TreeNode n7 = root2.find(7);
         TreeNode ancestor = commonAncestor(n3, n7);
         System.out.println(ancestor.data);
+
+        // t2 is a subtree of t1
+        int[] array10 = {1,2,3,4,5,6,7,8,9};
+        int[] array20 = {6,7,8,9};
+
+        TreeNode t1 = TreeNode.createMinimalBST(array10);
+        TreeNode t2 = TreeNode.createMinimalBST(array20);
+
+        if (containsTree(t1, t2)) {
+            System.out.println("t2 is a subtree of t1");
+        } else {
+            System.out.println("t2 is not a subtree of t1");
+        }
     }
 }
 
