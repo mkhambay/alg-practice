@@ -1,0 +1,73 @@
+package com.khambay.alg.queue;
+
+import java.util.EmptyStackException;
+import java.util.NoSuchElementException;
+
+public class MyQueue<T> {
+
+    private static class QueueNode<T> {
+        private T data;
+        private QueueNode<T> next;
+
+        public QueueNode(T data) {
+            this.data = data;
+        }
+    }
+
+    private QueueNode<T> first;
+    private QueueNode<T> last;
+
+    public void add(T item) {
+        QueueNode<T> t = new QueueNode<>(item);
+
+        if(last != null) {
+            last.next = t;
+        }
+        last = t;
+
+        if(first == null) {
+            first = last;
+        }
+    }
+
+    public T remove() {
+        if(first == null) {
+            throw new NoSuchElementException();
+        }
+        T data = first.data;
+        first = first.next;
+
+        if(first == null) {
+            last = null;
+        }
+        return data;
+    }
+
+
+    public T peek() {
+        if(first == null) {
+            throw new EmptyStackException();
+        }
+        return first.data;
+    }
+
+    public boolean isEmpty() {
+        return first == null;
+    }
+
+    public static void main(String[] args) {
+        MyQueue<Integer> myQueue = new MyQueue<>();
+        myQueue.add(1);
+
+        Integer peek = myQueue.peek();
+        System.out.println("Peek = " + peek);
+
+        Boolean isEmpty = myQueue.isEmpty();
+        System.out.println("isEmpty = " + isEmpty);
+
+        myQueue.remove();
+
+        isEmpty = myQueue.isEmpty();
+        System.out.println("isEmpty = " + isEmpty);
+    }
+}

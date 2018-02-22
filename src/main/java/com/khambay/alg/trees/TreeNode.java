@@ -132,13 +132,13 @@ public class TreeNode {
         return n;
     }
 
+    //4.3 List of depths
     public static ArrayList<LinkedList<TreeNode>> createLevelLinkedListDFS(TreeNode root) {
         ArrayList<LinkedList<TreeNode>> lists = new ArrayList<LinkedList<TreeNode>>();
         createLevelLinkedListDFSPreOrder(root, lists, 0);
         return lists;
     }
 
-    //4.3 List of depths
     public static void createLevelLinkedListDFSPreOrder(TreeNode root, ArrayList<LinkedList<TreeNode>> lists, int level) {
         if(root == null) {
             return;
