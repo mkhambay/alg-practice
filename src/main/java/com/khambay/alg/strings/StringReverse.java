@@ -7,8 +7,7 @@ public class StringReverse {
         int left, right = 0;
         right = strArray.length-1;
 
-        for (left=0; left < right ; left++,right--)
-        {
+        for (left=0; left < right ; left++,right--) {
             char temp = strArray[left];
             strArray[left] = strArray[right];
             strArray[right]=temp;
