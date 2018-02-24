@@ -4,7 +4,7 @@ package com.khambay.alg.sorting;
 public class SelectionSort {
 
     public void sort(int arr[]) {
-        for (int i = 0; i < arr.length-1; i++) {
+        for (int i = 0; i < arr.length; i++) {
             int min_idx = i;
             for (int j = i+1; j < arr.length; j++) {
                 if (arr[j] < arr[min_idx]) {
