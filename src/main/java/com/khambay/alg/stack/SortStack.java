@@ -1,10 +1,8 @@
 package com.khambay.alg.stack;
 
-import com.khambay.alg.queue.QueueUsingStack;
+public class SortStack {
 
-public class MinStack {
-
-    public class Stack {
+    public static class Stack {
 
         class Node {
             int data;
@@ -64,66 +62,35 @@ public class MinStack {
                 System.out.println("Nothing to print. Stack is empty!");
             }
         }
-    }
 
-    private Stack stackData = new Stack();
-    private Stack stackMin = new Stack();
+        public void sort() throws Exception {
+            Stack r = new Stack();
+            while(!this.isEmpty()) {
+                int tmp = this.pop();
+                while(!r.isEmpty() && r.peek() > tmp) {
+                    this.push(r.pop());
+                }
+                r.push(tmp);
+            }
 
-    public void push(int data) throws Exception {
-        if(data <= min()) {
-            stackMin.push(data);
+            while (!r.isEmpty()) {
+                this.push(r.pop());
+            }
         }
-        stackData.push(data);
-    }
-
-    public int pop() throws Exception {
-        int popData = stackData.pop();
-        if(popData == min()) {
-            stackMin.pop();
-        }
-        return popData;
-    }
-
-    public int min() throws Exception {
-        if(stackMin.isEmpty()) {
-            return Integer.MAX_VALUE;
-        }
-        else {
-            return stackMin.peek();
-        }
-    }
-
-    public void printStackData() {
-        stackData.printStack();
-    }
-
-    public void printStackMin() {
-        stackMin.printStack();
     }
 
     public static void main(String[] args) throws Exception {
-        MinStack minStack = new MinStack();
+        Stack sortStack = new Stack();
 
-        minStack.push(6);
-        minStack.push(4);
-        minStack.push(3);
-        minStack.push(2);
-        minStack.push(8);
-        minStack.push(9);
-        minStack.push(1);
-        minStack.push(5);
-        minStack.printStackData();
-        minStack.printStackMin();
+        sortStack.push(4);
+        sortStack.push(10);
+        sortStack.push(5);
+        sortStack.push(1);
+        sortStack.push(3);
+        sortStack.push(2);
+        sortStack.printStack();
 
-        System.out.println("Pop");
-        minStack.pop();
-        minStack.printStackData();
-        minStack.printStackMin();
-
-        System.out.println("Pop min");
-        minStack.pop();
-        minStack.printStackData();
-        minStack.printStackMin();
-
+        sortStack.sort();
+        sortStack.printStack();
     }
 }
