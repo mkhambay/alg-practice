@@ -125,5 +125,19 @@ public class MinStack {
         minStack.printStackData();
         minStack.printStackMin();
 
+        System.out.println("MinStack 2");
+
+        MinStack minStack2 = new MinStack();
+        minStack2.push(0);
+        minStack2.push(1);
+        minStack2.push(0);
+        minStack2.printStackData();
+        minStack2.printStackMin();
+
+        System.out.println("getMin=" + minStack2.min());
+        minStack2.pop();
+        System.out.println("getMin=" + minStack2.min());
+        minStack2.printStackData();
+        minStack2.printStackMin();
     }
 }
