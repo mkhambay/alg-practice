@@ -1,4 +1,4 @@
-package com.khambay.alg.strings;
+package com.khambay.alg.arrays;
 
 public class RotateMatrix {
 
