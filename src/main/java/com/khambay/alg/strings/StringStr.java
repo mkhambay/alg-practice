@@ -1,5 +1,9 @@
 package com.khambay.alg.strings;
 
+/**
+ * Time - O(mn)
+ * Space - O(1)
+ */
 public class StringStr {
     public static int strStr(String haystack, String needle) {
         if(haystack==null || needle==null)

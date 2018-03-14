@@ -1,5 +1,9 @@
 package com.khambay.alg.strings;
 
+/**
+ * Time - O(n)
+ * Space - O(1)
+ */
 public class StringRotation {
 
     public static boolean isRotation(String s1, String s2) {

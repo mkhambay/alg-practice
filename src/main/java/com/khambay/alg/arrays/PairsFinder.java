@@ -4,6 +4,9 @@ import java.util.HashSet;
 
 /**
  * Class to find pairs in an array whose sum matches given sum.
+ *
+ * Time and Space O(n)
+ *
  */
 public class PairsFinder {
 

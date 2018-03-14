@@ -3,6 +3,9 @@ package com.khambay.alg.arrays;
 import java.util.HashMap;
 import java.util.Map;
 
+/**
+ * Time and Space O(n)
+ */
 public class TwoSum {
 
     public static int[] twoSum(int[] nums, int target) {

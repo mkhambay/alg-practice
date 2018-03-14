@@ -2,6 +2,9 @@ package com.khambay.alg.strings;
 
 import java.util.LinkedHashMap;
 
+/**
+ * Time and Space - O(n)
+ */
 public class FirstUniqueChar {
 
     static class CharCountandIndex {
