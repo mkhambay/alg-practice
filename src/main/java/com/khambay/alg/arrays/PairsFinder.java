@@ -76,12 +76,27 @@ public class PairsFinder {
         }
     }
 
+    public void findPairSumsGabe(int[] array, int sum) {
+        HashSet<Integer> elements = new HashSet<>();
+
+        for(int x : array) {
+            int complement = sum - x;
+            if(elements.contains(complement) && !elements.contains(x)) {
+                System.out.println("Pair = " + x + " " + complement);
+            }
+            elements.add(x);
+        }
+    }
+
     public static void main(String args[]) throws Exception {
         PairsFinder p = new PairsFinder();
         int arr[] = {1, 7, 4, 8, 2, 3};
 
         System.out.println("Find Pairs");
         p.findAllPairs(5, arr);
+
+        System.out.println("Find Pairs - Gabe");
+        p.findPairSumsGabe(arr, 5);
 
         System.out.println("Find Single Pairs Nested For");
         p.findPairsNestedFor(5, arr);
