@@ -18,7 +18,9 @@ public class TwoSum {
 
         for(int i = 0; i < nums.length; i++) {
             int complement = target - nums[i];
-            if(map.containsKey(complement) && map.get(complement) != i) {
+            if(map.containsKey(complement)
+                    && map.get(complement) != i //you may not use the same element twice
+                    ) {
                 return new int[] {i, map.get(complement)};
             }
         }

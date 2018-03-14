@@ -81,7 +81,9 @@ public class PairsFinder {
 
         for(int x : array) {
             int complement = sum - x;
-            if(elements.contains(complement) && !elements.contains(x)) {
+            if(elements.contains(complement)
+                    && !elements.contains(x) //this helps return a unique list of pairs
+                    ) {
                 System.out.println("Pair = " + x + " " + complement);
             }
             elements.add(x);
