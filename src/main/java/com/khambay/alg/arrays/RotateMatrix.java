@@ -18,10 +18,10 @@ public class RotateMatrix {
                 int top = matrix[first][i]; // save top
 
                 // left -> top
-                matrix[first][i] = matrix[last-offset][first];
+                matrix[first][i] = matrix[last - offset][first];
 
                 // bottom -> left
-                matrix[last-offset][first] = matrix[last][last - offset];
+                matrix[last - offset][first] = matrix[last][last - offset];
 
                 // right -> bottom
                 matrix[last][last - offset] = matrix[i][last];
@@ -70,7 +70,7 @@ public class RotateMatrix {
     }
 
     public static void main(String[] args) {
-        int[][] matrix = randomMatrix(3, 3, 0, 9);
+        int[][] matrix = randomMatrix(4, 4, 0, 9);
         printMatrix(matrix);
         rotate(matrix);
         System.out.println();
