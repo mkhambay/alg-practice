@@ -3,8 +3,9 @@ package com.khambay.alg.strings;
 import java.util.*;
 
 /**
- * Time - O(n)
- * Space - O(n)
+ * Time - O(nklog(k)) - arrays.sort
+ * Space - O(n*k)
+ * N is the length of strs, and K is the maximum length of a string in strs
  */
 public class GroupAnagrams {
 
