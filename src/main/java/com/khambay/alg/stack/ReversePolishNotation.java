@@ -52,10 +52,11 @@ public class ReversePolishNotation {
         Stack<String> stack = new Stack<>();
 
         for(String t : tokens){
-            if(!operators.contains(t)) {
+            if(!operators.contains(t)) { //its a number, add to stack
                 stack.push(t);
             }
-            else {
+            else {//evaluate the operator and put interium result back on stack for further processing
+                //As its a stack the values are in reverse
                 int a = Integer.valueOf(stack.pop());
                 int b = Integer.valueOf(stack.pop());
                 int index = operators.indexOf(t);

@@ -34,8 +34,8 @@ public class StringStr {
     }
 
     public static void main(String[] args) {
-        String one = "aaabcd";
-        String two = "bcde";
+        String one = "hello";
+        String two = "ll";
 
         System.out.println("Index =" + strStr(one, two));
     }
