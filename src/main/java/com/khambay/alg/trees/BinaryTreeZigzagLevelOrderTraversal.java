@@ -31,7 +31,7 @@ public class BinaryTreeZigzagLevelOrderTraversal {
                     levelNodes.add(current.data);
                 }
                 else {
-                    levelNodes.add(0, current.data);
+                    levelNodes.add(0, current.data); //adds always at beginning of ArrayList, creating a reverse list
                 }
 
                 if(current.left != null) {
