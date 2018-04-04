@@ -3,7 +3,10 @@ package com.khambay.alg.trees;
 import java.util.LinkedList;
 import java.util.Queue;
 
-public class CourseScheduleBFSTopoSort {
+/**
+ * Time and Space - O(v*e) - v: vertices and e: edges
+ */
+public class CourseScheduleBFSTopologicalSort {
 
     public static boolean canFinish(int numCourses, int[][] prerequisites) {
         int[][] edgeMatrix = new int[numCourses][numCourses]; // i -> j
