@@ -13,19 +13,21 @@ public class KthSmallestElementBST {
     public static int kthSmallest(TreeNode root, int k) {
         Result result = new Result();
         result.count = k;
-        findKthSmallestDFS(root, result);
+        findKthSmallestDFSInOrder(root, result);
         return result.number;
     }
 
-    public static void findKthSmallestDFS(TreeNode root, Result result) {
+    public static void findKthSmallestDFSInOrder(TreeNode root, Result result) {
         //base case
-        if(root == null || result.count < 0) {
+        if(root == null || result.count < 0) { //As soon as a match is found, it will exit with the check
+                                                // for result.count < 0 and not go over rest of the Tree
             return;
         }
 
         //go left
-        findKthSmallestDFS(root.left, result);
+        findKthSmallestDFSInOrder(root.left, result);
 
+        //visit root
         result.count--;
         if(result.count == 0) { //found match
             result.number = root.data;
@@ -33,7 +35,7 @@ public class KthSmallestElementBST {
         }
 
         //go right
-        findKthSmallestDFS(root.right, result);
+        findKthSmallestDFSInOrder(root.right, result);
     }
 
     public static void main(String[] args) {
