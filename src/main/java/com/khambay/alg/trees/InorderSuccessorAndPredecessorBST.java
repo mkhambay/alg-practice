@@ -14,9 +14,7 @@ public class InorderSuccessorAndPredecessorBST {
         } else {
             TreeNode left = successor(root.left, p);
             return (left != null) ? left : root;
-            //in order successor - left null, return the next -> root
-            //left is not null when we searching on the right side of the tree
-            //ex 5 -> 6 (left is 6)
+            //in order successor - left null, return the next -> root otherwise return left
         }
     }
 
