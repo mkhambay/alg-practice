@@ -4,9 +4,11 @@ import java.util.*;
 
 /**
  * Graph implementation using LinkedList and Gabe's pseudocode as a guide
+ * Important to keep track of visited nodes otherwise infinite loop
  */
 public class Graph {
 
+    //Adj list
     private LinkedList<Integer> vertices[];
 
     public Graph(int verticesSize) {
@@ -21,7 +23,7 @@ public class Graph {
     }
 
     public void breadthFirstSearch(int vertex) {
-        boolean visited[] = new boolean[this.vertices.length];
+        boolean visited[] = new boolean[this.vertices.length]; //keep track for visited nodes
         LinkedList<Integer> queue = new LinkedList<>();
 
         visited[vertex] = true;
