@@ -5,7 +5,7 @@ import java.util.Arrays;
 public class TripleStep {
 
     public static int countWays(int n) {
-        //Array from 1-50 and not 0-40. Thats why new int[n + 1]
+        //n + 1 to store the result and return that
         int[] map = new int[n + 1];
         Arrays.fill(map, -1);
         return countWays(n, map);

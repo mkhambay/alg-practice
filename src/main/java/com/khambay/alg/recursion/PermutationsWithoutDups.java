@@ -5,11 +5,12 @@ import java.util.ArrayList;
 public class PermutationsWithoutDups {
 
     public static ArrayList<String> getPerms(String str) {
-        if (str == null) {
+        if (str == null) {// base case
             return null;
         }
-        ArrayList<String> permutations = new ArrayList<String>();
-        if (str.length() == 0) { // base case
+
+        ArrayList<String> permutations = new ArrayList<>();
+        if (str.length() == 0) { //base case
             permutations.add("");
             return permutations;
         }

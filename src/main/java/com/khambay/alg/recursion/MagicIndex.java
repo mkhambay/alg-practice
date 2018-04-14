@@ -11,17 +11,18 @@ public class MagicIndex {
             return -1;
         }
 
-        int mid = (start + end)/2;
-        if(array[mid] == mid) {
-            return mid;
+        int midIndex = (start + end)/2;
+        int midValue = array[midIndex];
+        if(midValue == midIndex) {
+            return midIndex;
         }
-        else if(array[mid] > mid) {
+        else if(midValue > midIndex) {
             //go left
-            return magicIndexBinarySearch(array, start, mid - 1);
+            return magicIndexBinarySearch(array, start, midIndex - 1);
         }
         else {
             //go right
-            return magicIndexBinarySearch(array, mid + 1, end);
+            return magicIndexBinarySearch(array, midIndex + 1, end);
         }
     }
 
@@ -41,7 +42,7 @@ public class MagicIndex {
         /* Search left */
         int leftIndex = Math.min(midIndex - 1, midValue);
         int left = magicIndexWithDuplicates(array, start, leftIndex);
-        if (left >= 0) {
+        if (left >= 0) { //match found
             return left;
         }
 

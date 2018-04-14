@@ -6,7 +6,7 @@ import java.util.HashMap;
 public class PermutationsWithDups {
 
     public static HashMap<Character, Integer> buildFreqTable(String s) {
-        HashMap<Character, Integer> map = new HashMap<Character, Integer>();
+        HashMap<Character, Integer> map = new HashMap<>();
         for (char c : s.toCharArray()) {
             if (!map.containsKey(c)) {
                 map.put(c, 0);
@@ -34,7 +34,7 @@ public class PermutationsWithDups {
     }
 
     public static ArrayList<String> printPerms(String s) {
-        ArrayList<String> result = new ArrayList<String>();
+        ArrayList<String> result = new ArrayList<>();
         HashMap<Character, Integer> map = buildFreqTable(s);
         printPerms(map, "", s.length(), result);
         return result;
