@@ -1,5 +1,8 @@
 package com.khambay.alg.sorting;
 
+/**
+ * Time - O(log n). Worst case - O(n) incase the array has duplicates, will have to search left and right
+ */
 public class SearchRotatedArray {
 
     public static int search(int a[], int x) {
@@ -8,17 +11,14 @@ public class SearchRotatedArray {
 
 
     public static int search(int a[], int left, int right, int x) {
-        //Get mid
-        int mid = (left + right)/2;
-
-        //Check mid match
-        if (x == a[mid]) {
-            return mid;
-        }
-
-        //End Recursive
+        //Base case
         if (right < left) {
             return -1;
+        }
+
+        int mid = (left + right)/2;
+        if (x == a[mid]) {
+            return mid;
         }
 
         //Left side of mid is ordered

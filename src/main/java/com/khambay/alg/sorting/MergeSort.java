@@ -1,5 +1,9 @@
 package com.khambay.alg.sorting;
 
+/**
+ * Time - Best and Worst - O(nlogn)
+ * Space - O(n)
+ */
 public class MergeSort {
 
     void mergesort(int[] array) {
@@ -12,12 +16,12 @@ public class MergeSort {
             int middle = (low + high)/2;
             mergesort(array, helper, low, middle); //Sort left half
             mergesort(array, helper, middle+1, high); //Sort right half
-            merge(array, helper, low, middle, high); //Merge them
+            merge(array, helper, low, middle, high); //Sort and Merge them
         }
     }
 
     void merge(int[] array, int[] helper, int low, int middle, int high) {
-        //Copy both halves into helper array
+        //Copy into helper array
         for(int i = low; i <= high; i++) {
             helper[i] = array[i];
         }

@@ -3,13 +3,13 @@ package com.khambay.alg.sorting;
 public class QuickSort {
 
     public void quickSort(int[] arr, int left, int right) {
+        if(right <= left) {
+            return;
+        }
+
         int index = partition(arr, left, right);
-        if(left < index - 1) { //Sort left half
-            quickSort(arr, left, index -1);
-        }
-        if(index < right) { //Sort right half
-            quickSort(arr, index, right);
-        }
+        quickSort(arr, left, index -1);
+        quickSort(arr, index + 1, right);
     }
 
     private int partition(int[] arr, int left, int right) {
@@ -33,6 +33,7 @@ public class QuickSort {
             }
         }
         return left;
+
     }
 
     private void swap(int[] arr, int left, int right) {
