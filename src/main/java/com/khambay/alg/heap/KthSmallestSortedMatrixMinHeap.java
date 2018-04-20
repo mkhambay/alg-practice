@@ -3,6 +3,8 @@ package com.khambay.alg.heap;
 import java.util.PriorityQueue;
 
 /**
+ * Min Heap with Sort using the Comparable
+ *
  * Time - O(n + klogn)
  * Build a min heap which takes O(n) time
  * Heapify k times which takes O(klogn) time
