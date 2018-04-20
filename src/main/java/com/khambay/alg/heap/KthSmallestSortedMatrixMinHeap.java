@@ -11,19 +11,18 @@ import java.util.PriorityQueue;
 public class KthSmallestSortedMatrixMinHeap {
 
     public static int kthSmallest(int[][] matrix, int k) {
-        int rowLength = matrix.length;
-
         PriorityQueue<Tuple> pq = new PriorityQueue<>();
 
-        for(int j = 0; j <= rowLength - 1; j++) {
-            pq.offer(new Tuple(0, j, matrix[0][j])); //added in order of the comparator below
+        //Add first row to Priority queue
+        for(int c = 0; c < matrix[0].length; c++) {
+            pq.offer(new Tuple(0, c, matrix[0][c])); //added in order of the comparator below
         }
 
-        for(int i = 0; i < k - 1; i++) {
+        for(int i = 0; i < k - 1; i++) { //k - 1 as the result is on top and we want to fetch it outside
             Tuple t = pq.poll(); //gets top element in heap, the minimum
 
-            if(t.row == rowLength - 1) { //row length reached
-                continue;
+            if(t.row == matrix.length - 1) { //row length reached
+                continue; //will just pop and continue to next in queue
             }
             pq.offer(new Tuple(t.row + 1, t.col, matrix[t.row + 1][t.col])); //add next row, same column
         }
@@ -41,7 +40,6 @@ public class KthSmallestSortedMatrixMinHeap {
 
         @Override
         public int compareTo(Tuple that) {
-            System.out.println("Compare to" + that.val);
             return this.val - that.val;
         }
     }
