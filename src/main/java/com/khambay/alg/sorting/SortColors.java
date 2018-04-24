@@ -22,7 +22,7 @@ public class SortColors {
             }
             else if(nums[i] == 2) {
                 swap(nums, i, k);
-                i--;
+                i--; //move i back to re-evaluate the value we got in the swap with k above
                 k--;
             }
         }

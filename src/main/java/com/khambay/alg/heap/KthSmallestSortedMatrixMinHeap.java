@@ -17,7 +17,7 @@ public class KthSmallestSortedMatrixMinHeap {
 
         //Add first row to Priority queue
         for(int c = 0; c < matrix[0].length; c++) {
-            pq.offer(new Tuple(0, c, matrix[0][c])); //added in order of the comparator below
+            pq.add(new Tuple(0, c, matrix[0][c])); //added in order of the comparator below
         }
 
         for(int i = 0; i < k - 1; i++) { //k - 1 as the result is on top and we want to fetch it outside
@@ -26,7 +26,7 @@ public class KthSmallestSortedMatrixMinHeap {
             if(t.row == matrix.length - 1) { //row length reached
                 continue; //will just pop and continue to next in queue
             }
-            pq.offer(new Tuple(t.row + 1, t.col, matrix[t.row + 1][t.col])); //add next row, same column
+            pq.add(new Tuple(t.row + 1, t.col, matrix[t.row + 1][t.col])); //add next row, same column
         }
         return pq.poll().val; //returns the top of the heap, the smallest value
     }
