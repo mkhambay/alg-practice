@@ -58,11 +58,11 @@ public class FractionToDecimal {
     }
 
     public static void main(String[] args) {
-//        System.out.println("numerator = 1, denominator = 2 Result = " + fractionToDecimal(1, 2));
-//        System.out.println("numerator = 2, denominator = 1 Result = " + fractionToDecimal(2, 1));
-//        System.out.println("numerator = 2, denominator = 3 Result = " + fractionToDecimal(2, 3));
-//        System.out.println("numerator = -2, denominator = 3 Result = " + fractionToDecimal(-2, 3));
-//        System.out.println("numerator = 4, denominator = 333 Result = " + fractionToDecimal(4, 333));
+        System.out.println("numerator = 1, denominator = 2 Result = " + fractionToDecimal(1, 2));
+        System.out.println("numerator = 2, denominator = 1 Result = " + fractionToDecimal(2, 1));
+        System.out.println("numerator = 2, denominator = 3 Result = " + fractionToDecimal(2, 3));
+        System.out.println("numerator = -2, denominator = 3 Result = " + fractionToDecimal(-2, 3));
+        System.out.println("numerator = 4, denominator = 333 Result = " + fractionToDecimal(4, 333));
         System.out.println("numerator = -22, denominator = -2 Result = " + fractionToDecimal(-22, -2));
     }
 }
