@@ -12,6 +12,7 @@ public class ReverseInteger {
             int lastDigit = x % 10;
             int newResult = result * 10 + lastDigit;
 
+            //Integer overflow check - function returns 0 when the reversed integer overflows
             if ((newResult - lastDigit) / 10 != result) {
                 return 0;
             }
