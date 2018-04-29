@@ -1,7 +1,5 @@
 package com.khambay.alg.hashtable;
 
-import com.khambay.alg.linkedlist.PartialSum;
-
 import java.util.HashMap;
 import java.util.Map;
 
