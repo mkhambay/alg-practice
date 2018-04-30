@@ -20,7 +20,7 @@ public class GameOfLife {
                 if (initialState == 1 && lives >= 2 && lives <= 3) {
                     board[row][col] = 3; // Make the 2nd bit 1: 01 ---> 11
                 }
-                if (initialState == 0 && lives == 3) {  
+                if (initialState == 0 && lives == 3) {
                     board[row][col] = 2; // Make the 2nd bit 1: 00 ---> 10
                 }
             }
