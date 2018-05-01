@@ -3,6 +3,9 @@ package com.khambay.alg.arrays;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Time and Space - O(n)
+ */
 public class MissingRanges {
 
     public static List<String> findMissingRanges(int[] nums, int lo, int hi) {
