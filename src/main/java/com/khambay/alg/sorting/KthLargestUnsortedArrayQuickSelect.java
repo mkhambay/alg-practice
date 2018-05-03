@@ -28,7 +28,8 @@ public class KthLargestUnsortedArrayQuickSelect {
     }
 
     public static int getKth(int k, int[] nums, int start, int end) {
-        int pivotValue = nums[end];
+        int pivotIndex = end; //using the last value as pivot
+        int pivotValue = nums[pivotIndex];
 
         int left = start;
         int right = end;
@@ -43,19 +44,20 @@ public class KthLargestUnsortedArrayQuickSelect {
             }
 
             if (left == right) {
-                swap(nums, left, end);
+                swap(nums, left, pivotIndex);
+                pivotIndex = left;
                 break;
             }
 
             swap(nums, left, right);
         }
 
-        if (k == left) {
+        if (k == pivotIndex) {
             return pivotValue;
-        } else if (k < left) {
-            return getKth(k, nums, start, left - 1);
+        } else if (k < pivotIndex) {
+            return getKth(k, nums, start, pivotIndex - 1);
         } else {
-            return getKth(k, nums, left + 1, end);
+            return getKth(k, nums, pivotIndex + 1, end);
         }
     }
 

@@ -7,21 +7,23 @@ public class QuickSort {
             return;
         }
 
-        int index = partition(arr, left, right);
-        quickSort(arr, left, index -1);
-        quickSort(arr, index + 1, right);
+        int pivotIndex = partition(arr, left, right);
+        quickSort(arr, left, pivotIndex -1);
+        quickSort(arr, pivotIndex + 1, right);
     }
 
     private int partition(int[] arr, int left, int right) {
-        int pivot = arr[(left + right)/2]; //Pick pivot point
+        int pivotIndex = (left + right)/2;
+        int pivotValue = arr[pivotIndex]; //Pick pivot point
+
         while(left <= right) {
             //Find element on left that should be on right
-            while(arr[left] < pivot) {
+            while(arr[left] < pivotValue) {
                 left++;
             }
 
             //Find element on right that should be on left
-            while(arr[right] > pivot) {
+            while(arr[right] > pivotValue) {
                 right--;
             }
 
@@ -32,8 +34,9 @@ public class QuickSort {
                 right--;
             }
         }
-        return left;
-
+        //when left == right, its the new pivot Index
+        pivotIndex = left;
+        return pivotIndex;
     }
 
     private void swap(int[] arr, int left, int right) {
