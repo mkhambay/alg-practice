@@ -8,9 +8,9 @@ import java.util.Arrays;
  * Space - O(n) - dp array size of n
  *
  * Arrays.binarySearch() method returns index of the search key, if it is contained in the array,
- * else it returns (-(insertion point) - 1). The insertion point is the point at which the key
+ * else it returns -(insertion point) - 1. The insertion point is the point at which the key
  * would be inserted into the array: the index of the first element greater than the key,
- * or a.length if all elements in the array are less than the specified key
+ * or -(toIndex) - 1 if all elements in the array are less than the specified key
  */
 public class LongestIncreasingSubsequence {
 
@@ -19,7 +19,7 @@ public class LongestIncreasingSubsequence {
         int len = 0;
         for (int num : nums) {
             int i = Arrays.binarySearch(dp, 0, len, num);
-            if (i < 0) { //element not found, returns index of -(insertion) - 1 or -(len)
+            if (i < 0) { //element not found, returns index of -(insertion) - 1 or -(len) - 1
                 i = -(i + 1); //if not found, binary search returns index as negative and with - 1. This step adds that back.
             }
             dp[i] = num;

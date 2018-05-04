@@ -27,17 +27,17 @@ public class WiggleSort {
         while (i <= right) {
             int index = newIndex(i,n);
 
-            if (nums[index] > median) {
+            if (nums[index] > median) { //elements larger than the 'median' are put into the first odd slots
                 swap(nums, newIndex(left,n), index);
                 left++;
                 i++;
             }
-            else if (nums[index] < median) {
+            else if (nums[index] < median) { //elements smaller than the 'median' are put into the last even slots
                 swap(nums, newIndex(right,n), index);
                 right--;
             }
             else {
-                i++;
+                i++; //equal to median
             }
         }
     }
