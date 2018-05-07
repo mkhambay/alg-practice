@@ -17,8 +17,9 @@ public class LongestPalindromicSubstring {
 
         for (int i = 0; i < strLength - 1; i++) {
             extendPalindrome(s, i, i); //odd
-            extendPalindrome(s, i, i + 1); //even
+            extendPalindrome(s, i, i + 1); //even ex. bb
         }
+
         return s.substring(startIndex, startIndex + maxLength + 1); //+1 as String substring method does endIndex - 1
     }
 
@@ -40,7 +41,7 @@ public class LongestPalindromicSubstring {
     }
 
     public static void main(String[] args) {
-        String s = "abb";
-        System.out.println("Longest Palindromic Substring = " + longestPalindrome(s));
+//        System.out.println("abb = " + longestPalindrome("abb"));
+        System.out.println("Longest Palindromic Substring = " + longestPalindrome("babad"));
     }
 }

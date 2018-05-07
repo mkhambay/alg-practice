@@ -5,7 +5,7 @@ import java.util.ArrayList;
 public class PermutationsWithoutDups {
 
     public static ArrayList<String> getPerms(String str) {
-        if (str == null) {// base case
+        if (str == null) {
             return null;
         }
 

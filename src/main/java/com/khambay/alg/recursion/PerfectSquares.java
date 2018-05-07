@@ -13,6 +13,7 @@ public class PerfectSquares {
         Arrays.fill(dp, Integer.MAX_VALUE);
         dp[0] = 0;
 
+        //note - i <= n as we start at 1 and upto n
         for(int i = 1; i <= n; ++i) {
             int min = Integer.MAX_VALUE;
             int j = 1;
