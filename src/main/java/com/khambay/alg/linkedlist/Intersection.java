@@ -65,7 +65,7 @@ public class Intersection {
         longer = getKthNode(longer, Math.abs(result1.size - result2.size));
 
         /* Move both pointers until you have a collision. */
-        while (shorter != longer) {
+        while (shorter != longer) { //compare the references and not value as per the problem definition
             shorter = shorter.next;
             longer = longer.next;
         }

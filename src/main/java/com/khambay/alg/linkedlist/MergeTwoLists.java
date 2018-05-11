@@ -29,6 +29,8 @@ public class MergeTwoLists {
             p = p.next;
         }
 
+        //Edge case when lists are not same size
+        //We need to capture the remaining list
         if(p1 != null) {
             p.next = p1;
         }
