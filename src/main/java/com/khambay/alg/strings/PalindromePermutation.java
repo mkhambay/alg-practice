@@ -27,8 +27,7 @@ public class PalindromePermutation {
 
     //Count how may times each character appears
     int[] buildCharFrequencyTable(String phrase) {
-        int[] table = new int[Character.getNumericValue('z')
-                - Character.getNumericValue('a') + 1];
+        int[] table = new int[26];
 
         for(char c : phrase.toCharArray()) {
             int x = getCharNumber(c);

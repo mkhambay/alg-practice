@@ -38,7 +38,7 @@ public class StringCompression {
         for(int i = 0; i < str.length(); i++) {
             countConsecutive++;
 
-            if(i + 1 >= str.length() //check for tail
+            if(i + 1 == str.length() //at the last character
                     || str.charAt(i) != str.charAt(i + 1) //peek ahead
             ) {
                 compressed.append(str.charAt(i));

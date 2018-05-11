@@ -7,49 +7,24 @@ import java.util.LinkedHashMap;
  */
 public class FirstUniqueChar {
 
-    static class CharCountandIndex {
-        int index;
-        int count;
-
-        public CharCountandIndex(int index, int count) {
-            this.index = index;
-            this.count = count;
-        }
-    }
-
     public static int firstUniqChar(String s) {
-        LinkedHashMap<Integer, CharCountandIndex> charMap = new LinkedHashMap<>();
+        int freq [] = new int[26];
 
-        char[] charArray = s.toCharArray();
+        for(int i = 0; i < s.length(); i++)
+            freq[s.charAt(i) - 'a']++;
 
-        for(int i = 0; i < charArray.length; i++) {
-            int charVal = charArray[i];
-            if(charMap.containsKey(charVal)) {
-                CharCountandIndex countIndex = charMap.get(charVal);
-                countIndex.count++;
-                charMap.put(charVal, countIndex);
-            }
-            else {
-                charMap.put(charVal, new CharCountandIndex(i, 1));
-            }
-        }
+        for(int i = 0; i < s.length(); i++)
+            if(freq[s.charAt(i) - 'a'] == 1)
+                return i;
 
-        int index = -1;
-        for(Integer key : charMap.keySet()) {
-            if(charMap.get(key).count == 1) {
-                index = charMap.get(key).index;
-                break;
-            }
-        }
-
-        return index;
+        return -1;
     }
 
     public static void main(String[] args) {
         String test = new String("dddccdbba");
-        System.out.println("First unique char = " + firstUniqChar(test));
+        System.out.println("First unique char 1 = " + firstUniqChar(test));
 
         String test1 = new String("leetcode");
-        System.out.println("First unique char = " + firstUniqChar(test1));
+        System.out.println("First unique char 1 = " + firstUniqChar(test1));
     }
 }

@@ -82,8 +82,8 @@ public class LetterCombinationsPhoneNumber {
 
 
     public static void main(String[] args) {
-        List<String> ans = letterCombinations("23");
-        System.out.println(ans);
+//        List<String> ans = letterCombinations("23");
+//        System.out.println(ans);
 
         List<String> ans1 = letterCombinationsRecursive("23");
         System.out.println(ans1);

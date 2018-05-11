@@ -6,10 +6,10 @@ public class OneAway {
         if(first.length() == second.length()) {
             return oneEditReplace(first, second);
         }
-        else if(first.length() + 1 == second.length()) {
+        else if(first.length() + 1 == second.length()) { //first is smaller
             return oneEditInsert(first, second);
         }
-        else if(first.length() - 1 == second.length()) {
+        else if(first.length() - 1 == second.length()) { //second is smaller
             return oneEditInsert(second, first);
         }
         return false;
@@ -30,23 +30,25 @@ public class OneAway {
         return true;
     }
 
-    boolean oneEditInsert(String s1, String s2) {
-        int index1 = 0;
-        int index2 = 0;
+    boolean oneEditInsert(String small, String big) {
+        int indexSmall = 0;
+        int indexBig = 0;
+        boolean foundDifference = false;
 
-        while(index2 < s2.length() && index1 < s1.length()) {
+        while(indexBig < big.length() && indexSmall < small.length()) {
 
-            //checks for only 1 difference and moves only pointer index2++ Line 45. If the rest of the string does
-            //not match remaining index1, it returns false.
-            if(s1.charAt(index1) != s2.charAt(index2)) {
-                if(index1 != index2) {
+            //checks for only 1 difference and moves only pointer indexBig++. If the rest of the string does
+            //not match remaining indexSmall, it returns false.
+            if(small.charAt(indexSmall) != big.charAt(indexBig)) {
+                if(foundDifference) {
                     return false;
                 }
-                index2++;
+                foundDifference = true;
+                indexBig++; //skip one char in the bigger string
             }
             else {
-                index1++;
-                index2++;
+                indexSmall++;
+                indexBig++;
             }
         }
         return true;

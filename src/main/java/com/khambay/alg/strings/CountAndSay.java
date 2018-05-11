@@ -27,6 +27,6 @@ public class CountAndSay {
 
     public static void main(String[] args) {
         int n = 4;
-        System.out.println("21 = " + countAndSay(n));
+        System.out.println("4 = " + countAndSay(n));
     }
 }
