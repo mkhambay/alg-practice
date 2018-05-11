@@ -1,7 +1,5 @@
 package com.khambay.alg.stack;
 
-import com.khambay.alg.queue.QueueUsingStack;
-
 public class MinStack {
 
     public class Stack {

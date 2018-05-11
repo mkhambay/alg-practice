@@ -45,43 +45,35 @@ public class ReversePolishNotation {
     }
 
     public static int evalRPN(String[] tokens) {
-        int returnValue = 0;
-
         String operators = "+-*/";
-
-        Stack<String> stack = new Stack<>();
+        Stack<Integer> stack = new Stack<>();
 
         for(String t : tokens){
             if(!operators.contains(t)) { //its a number, add to stack
-                stack.push(t);
+                stack.push(Integer.valueOf(t));
             }
             else {//evaluate the operator and put interium result back on stack for further processing
-                //As its a stack the values are in reverse
-                int a = Integer.valueOf(stack.pop());
-                int b = Integer.valueOf(stack.pop());
+                //As its a stack the values are in reverse, value of b is before a in the stack
+                int b = stack.pop();
+                int a = stack.pop();
                 int index = operators.indexOf(t);
                 switch(index) {
                     case 0:
-                        stack.push(String.valueOf(a+b));
+                        stack.push(a+b);
                         break;
                     case 1:
-                        //value of b is before a in the stack
-                        stack.push(String.valueOf(b-a));
+                        stack.push(a-b);
                         break;
                     case 2:
-                        stack.push(String.valueOf(a*b));
+                        stack.push(a*b);
                         break;
                     case 3:
-                        //value of b is before a in the stack
-                        stack.push(String.valueOf(b/a));
+                        stack.push(a/b);
                         break;
                 }
             }
         }
-
-        returnValue = Integer.valueOf(stack.pop());
-
-        return returnValue;
+        return stack.pop();
     }
 
     public static void main(String[] args) {

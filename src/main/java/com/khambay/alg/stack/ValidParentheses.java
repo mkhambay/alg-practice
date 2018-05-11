@@ -1,6 +1,7 @@
 package com.khambay.alg.stack;
 
 import java.util.HashMap;
+import java.util.Map;
 
 public class ValidParentheses {
 
@@ -45,7 +46,7 @@ public class ValidParentheses {
 
 
     public static boolean isValid(String s) {
-        HashMap<Character, Character> charMap = new HashMap<>();
+        Map<Character, Character> charMap = new HashMap<>();
         charMap.put('(', ')');
         charMap.put('{', '}');
         charMap.put('[', ']');
@@ -55,7 +56,7 @@ public class ValidParentheses {
         for(int i = 0; i < s.length(); i++) {
             char c = s.charAt(i);
 
-            if(charMap.keySet().contains(c)) {
+            if(charMap.containsKey(c)) {
                 //Add to stack for eval
                 charStack.push(c);
             }

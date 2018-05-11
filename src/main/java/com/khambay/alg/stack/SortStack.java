@@ -67,13 +67,13 @@ public class SortStack {
             Stack r = new Stack();
             while(!this.isEmpty()) {
                 int tmp = this.pop();
-                while(!r.isEmpty() && r.peek() > tmp) {
-                    this.push(r.pop());
+                while(!r.isEmpty() && r.peek() > tmp) { //sort
+                    this.push(r.pop());     //empties r into this stack till it finds a value less than tmp
                 }
                 r.push(tmp);
             }
 
-            while (!r.isEmpty()) {
+            while (!r.isEmpty()) { //reverses the order to ascending
                 this.push(r.pop());
             }
         }
