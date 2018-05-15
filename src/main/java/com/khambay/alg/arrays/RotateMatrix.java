@@ -12,22 +12,28 @@ public class RotateMatrix {
 
         for (int layer = 0; layer < n / 2; layer++) {
             int first = layer;
-            int last = n - 1 - layer;
+            int last = n - 1 - layer; //as we go inside each layer
             for(int i = first; i < last; i++) {
                 int offset = i - first;
+
+                //put top matrix[0][0] into temp
                 int top = matrix[first][i]; // save top
 
                 // left -> top
+                // move matrix[3][0] -> matrix[0,0]
                 matrix[first][i] = matrix[last - offset][first];
 
                 // bottom -> left
+                // move matrix[3][3] -> matrix[3][0]
                 matrix[last - offset][first] = matrix[last][last - offset];
 
                 // right -> bottom
+                // move matrix[0][3] -> matrix[3][3]
                 matrix[last][last - offset] = matrix[i][last];
 
                 // top -> right
-                matrix[i][last] = top; // right <- saved top
+                // move temp -> matrix[0][3]
+                matrix[i][last] = top;
             }
         }
         return true;

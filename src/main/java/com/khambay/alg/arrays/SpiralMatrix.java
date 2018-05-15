@@ -32,16 +32,16 @@ public class SpiralMatrix {
             }
             top++;
 
+            //prevent duplicate row
+            if(top > bottom) {
+                break;
+            }
+
             //top -> bottom
             for(int j = top; j <= bottom; j++) {
                 result.add(matrix[j][right]);
             }
             right--;
-
-            //prevent duplicate row
-            if(top > bottom) {
-                break;
-            }
 
             //right -> left
             for(int i = right; i >= left; i--) {

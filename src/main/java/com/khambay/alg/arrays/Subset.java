@@ -7,53 +7,30 @@ import java.util.List;
 /**
  * Time - O(nlogn) - sort
  * Space - O(n)
+ * https://leetcode.com/problems/subsets/discuss/27281/A-general-approach-to-backtracking-questions-in-Java-(Subsets-Permutations-Combination-Sum-Palindrome-Partitioning)
  */
 public class Subset {
 
-    public static List<List<Integer>> subsets(int[] nums) {
-        if(nums == null) {
-            return null;
-        }
-
-        //Sort the array
+    public static List<List<Integer>> subsetsRecursive(int[] nums) {
+        List<List<Integer>> list = new ArrayList<>();
         Arrays.sort(nums);
+        backtrack(list, new ArrayList<>(), nums, 0);
+        return list;
+    }
 
-        List<List<Integer>> result = new ArrayList<>();
+    private static void backtrack(List<List<Integer>> list , List<Integer> tempList, int [] nums, int start) {
+        list.add(new ArrayList<>(tempList));
 
-        for(int i = 0; i < nums.length; i++) {
-            //Create a temp list to capture previous results
-            //and add the current element to each of them
-            List<List<Integer>> temp = new ArrayList<>();
-
-            //Get all the prior results and add them new to temp
-            for(List<Integer> a : result) {
-                temp.add(new ArrayList<Integer>(a));
-            }
-
-            //Add current element to each in temp
-            for(List<Integer> t : temp) {
-                t.add(nums[i]);
-            }
-
-            //Add the current element in a new list
-            List<Integer> currentNum = new ArrayList<>();
-            currentNum.add(nums[i]);
-            temp.add(currentNum);
-
-            //put all of new temp in result
-            result.addAll(temp);
+        for(int i = start; i < nums.length; i++){
+            tempList.add(nums[i]);
+            backtrack(list, tempList, nums, i + 1);
+            tempList.remove(tempList.size() - 1);
         }
-
-        //Add an empty set
-        List<Integer> emptySet = new ArrayList<>();
-        result.add(emptySet);
-
-        return result;
     }
 
     public static void main(String[] args) {
         int[] nums = {1,2,3};
-        List<List<Integer>> subsets = subsets(nums);
+        List<List<Integer>> subsets = subsetsRecursive(nums);
 
         for(List<Integer> a : subsets) {
             System.out.print("[ ");

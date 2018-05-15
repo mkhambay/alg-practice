@@ -18,9 +18,11 @@ public class ThreeSum {
 
         Arrays.sort(nums);
 
-        for(int i = 0; i < nums.length - 2; i++) {
+        for(int i = 0; i < nums.length - 2; i++) { //with j and k pointers - 2 for i
 
-            if(i == 0 || nums[i] > nums[i - 1]) {
+            if(i == 0 // first iteration
+                    || nums[i] > nums[i - 1] //only if numbers are ascending
+                    ) {
                 int j = i + 1;
                 int k = nums.length - 1;
 
@@ -43,10 +45,10 @@ public class ThreeSum {
                             k--;
 
                     }
-                    else if(nums[i] + nums[j] + nums[k] < 0) {
+                    else if(nums[i] + nums[j] + nums[k] < 0) { //array is sorted. If total <0, we need to move j up to next higher value
                         j++;
                     }
-                    else {
+                    else { //array is sorted ascending. k-- as total is already greater than 0. We need to get closer to 0.
                         k--;
                     }
                 }

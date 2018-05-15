@@ -57,9 +57,9 @@ public class MissingRanges {
     }
 
     public static void main(String[] args) {
-//        int[] nums = {0, 1, 3, 50, 75};
-//        List<String> missingRanges = findMissingRanges(nums, 0, 99);
-//        System.out.println("Missing Ranges = " + missingRanges);
+        int[] nums = {0, 1, 3, 50, 75};
+        List<String> missingRanges = findMissingRanges(nums, 0, 99);
+        System.out.println("Missing Ranges = " + missingRanges);
 
         int[] nums1 = {2147483647};
         List<String> missingRanges1 = findMissingRanges(nums1, 0, 2147483647);

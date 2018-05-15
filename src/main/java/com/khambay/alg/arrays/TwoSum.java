@@ -9,6 +9,7 @@ import java.util.Map;
 public class TwoSum {
 
     public static int[] twoSum(int[] nums, int target) {
+        //Map of number and its index
         Map<Integer, Integer> map = new HashMap<>();
 
         if(nums == null || nums.length < 2) {

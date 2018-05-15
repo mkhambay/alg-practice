@@ -15,15 +15,15 @@ public class RemoveDuplicatesSortedArray {
             return 0;
         }
 
-        int slow = 0;
+        int nonDupIndex = 0;
 
-        for(int fast = 1; fast < nums.length; fast++) {
-            if(nums[fast] != nums[slow]) {
-                slow++;
-                nums[slow] = nums[fast];
+        for(int i = 1; i < nums.length; i++) {
+            if(nums[i] != nums[nonDupIndex]) {
+                nonDupIndex++;
+                nums[nonDupIndex] = nums[i];
             }
         }
-        return slow + 1;
+        return nonDupIndex + 1; //since nonDupIndex starts at 0, length is always +1
     }
 
     public static void main(String[] args) {

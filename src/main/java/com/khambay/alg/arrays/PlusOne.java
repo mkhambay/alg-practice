@@ -18,8 +18,8 @@ public class PlusOne {
             int digit = digits[i];
 
             //add 1 for ones digit
-            if(i == digits.length - 1) {
-                digit = digit + 1 + carry;
+            if(i == digits.length - 1) { //add 1 to last digit to start the plus one process
+                digit = digit + carry + 1;
             }
             else {
                 digit = digit + carry;
@@ -27,7 +27,7 @@ public class PlusOne {
 
             //if value >= 10, set carry
             if(digit >= 10) {
-                digits[i] = digit % 10; //get the ones digit
+                digits[i] = digit % 10; /* Get second digit */
                 carry = 1;
             }
             else {
