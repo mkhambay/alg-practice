@@ -1,7 +1,7 @@
 package com.khambay.alg.arrays;
 
 /**
- * Array - 2 pointer
+ * Array - 2 pointer - Similar to MaxArea
  * Time - O(n)
  * Space - O(1)
  */
