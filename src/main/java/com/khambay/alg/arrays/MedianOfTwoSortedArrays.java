@@ -2,6 +2,7 @@ package com.khambay.alg.arrays;
 
 /**
  * Time - O(log(min(m+n)))
+ * Space - O(1)
  */
 public class MedianOfTwoSortedArrays {
 
