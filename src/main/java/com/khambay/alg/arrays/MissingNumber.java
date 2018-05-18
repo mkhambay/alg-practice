@@ -4,12 +4,24 @@ import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Set;
 
-/**
- * Time - O(nlogn)
- * Space - O(1)
- */
 public class MissingNumber {
 
+    //Time and Space O(n)
+    public static int missingNumberHashSet(int[] nums) {
+        Set<Integer> numSet = new HashSet<>();
+        for(int num : nums) {
+            numSet.add(num);
+        }
+
+        for(int number = 0; number < nums.length + 1; number++) {
+            if (!numSet.contains(number)) {
+                return number;
+            }
+        }
+        return -1;
+    }
+
+    //Time - O(nlogn) and Space O(1)
     public static int missingNumber(int[] nums) {
         if(nums == null) {
             return -1;
@@ -41,20 +53,6 @@ public class MissingNumber {
         return -1;
     }
 
-    //Time and Space O(n)
-    public static int missingNumberHashSet(int[] nums) {
-        Set<Integer> numSet = new HashSet<>();
-        for(int num : nums) {
-            numSet.add(num);
-        }
-
-        for(int number = 0; number < nums.length + 1; number++) {
-            if (!numSet.contains(number)) {
-                return number;
-            }
-        }
-        return -1;
-    }
 
     public static void main(String[] args) {
         int[] nums = {9,6,4,2,3,5,7,0,1};
