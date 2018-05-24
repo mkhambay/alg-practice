@@ -13,8 +13,8 @@ public class StringStr {
         if(needle.length() == 0)
             return 0;
 
-        for (int i = 0; ; i++) {
-            for (int j = 0; ; j++) {
+        for (int i = 0; ; i++) { //haystack
+            for (int j = 0; ; j++) { //needle
                 if (j == needle.length()) { //match found
                     return i;
                 }

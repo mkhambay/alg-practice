@@ -1,6 +1,7 @@
 package com.khambay.alg.strings;
 
 /**
+ * Similar to String Compression
  * Time - O(n^2)
  * Space - O(n)
  */

@@ -10,9 +10,11 @@ public class FirstMissingPositiveInteger {
     public static int firstMissingPositive(int[] nums) {
         int i = 0;
 
-        //sort
+        //sort and put the number in its correct index
         while (i < nums.length) {
-            if (nums[i] == i + 1 || nums[i] <= 0 || nums[i] > nums.length) {
+            if (nums[i] == i + 1 //value matches index + 1
+                    || nums[i] <= 0  //we are only looking for positive numbers
+                    || nums[i] > nums.length) { //value out of index match range
                 i++;
             }
             else if (nums[nums[i] - 1] != nums[i]) { //put the number in its correct index

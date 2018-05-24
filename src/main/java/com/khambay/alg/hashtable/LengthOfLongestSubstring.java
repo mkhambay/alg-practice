@@ -16,8 +16,8 @@ public class LengthOfLongestSubstring {
             if (map.containsKey(s.charAt(j))) { //found repeating char, reset i
                 i = Math.max(map.get(s.charAt(j)), i);
             }
-            ans = Math.max(ans, j - i + 1);
             map.put(s.charAt(j), j + 1);
+            ans = Math.max(ans, j - i + 1); //substring - so + 1
         }
         return ans;
     }

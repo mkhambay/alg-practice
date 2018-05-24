@@ -15,7 +15,7 @@ public class LongestPalindromicSubstring {
             return s;
         }
 
-        for (int i = 0; i < strLength - 1; i++) {
+        for (int i = 0; i < strLength - 1; i++) { //note - strLength - 1 as we have i + 1 on Line 20
             extendPalindrome(s, i, i); //odd
             extendPalindrome(s, i, i + 1); //even ex. bb
         }

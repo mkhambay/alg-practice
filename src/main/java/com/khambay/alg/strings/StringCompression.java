@@ -2,35 +2,6 @@ package com.khambay.alg.strings;
 
 public class StringCompression {
 
-    public String compressString(String str) {
-        if(str == null || str.length() < 2) {
-            return str;
-        }
-
-        StringBuilder buf = new StringBuilder();
-        char curr = str.charAt(0);
-        char prev = curr;
-        int count = 1;
-
-        for(int i = 1; i < str.length(); i++) {
-            curr = str.charAt(i);
-
-            if (curr == prev) {
-                count++;
-            } else {
-                buf.append(prev);
-                buf.append(count);
-                prev = curr;
-                count = 1;
-            }
-        }
-        //tail
-        buf.append(prev);
-        buf.append(count);
-
-        return buf.length() < str.length() ? buf.toString() : str;
-    }
-
     public String compressGabe(String str) {
         StringBuilder compressed = new StringBuilder();
         int countConsecutive = 0;
