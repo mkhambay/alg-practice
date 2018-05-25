@@ -10,10 +10,10 @@ import java.util.Set;
 public class ValidSudoku {
 
     public static boolean isValidSudoku(char[][] board) {
-        Set seen = new HashSet();
+        Set<String> seen = new HashSet<>();
 
-        for (int row = 0; row < 9; row++) {
-            for (int col= 0; col < 9; col++) {
+        for (int row = 0; row < board.length; row++) {
+            for (int col= 0; col < board[0].length; col++) {
                 char number = board[row][col];
 
                 if (number != '.') {
