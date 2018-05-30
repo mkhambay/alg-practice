@@ -134,7 +134,7 @@ public class TreeNode {
 
     //4.3 List of depths
     public static ArrayList<LinkedList<TreeNode>> createLevelLinkedListDFS(TreeNode root) {
-        ArrayList<LinkedList<TreeNode>> lists = new ArrayList<LinkedList<TreeNode>>();
+        ArrayList<LinkedList<TreeNode>> lists = new ArrayList<>();
         createLevelLinkedListDFSPreOrder(root, lists, 0);
         return lists;
     }
@@ -158,7 +158,7 @@ public class TreeNode {
     }
 
     public static ArrayList<LinkedList<TreeNode>> createLevelLinkedListBFS(TreeNode root) {
-        ArrayList<LinkedList<TreeNode>> result = new ArrayList<LinkedList<TreeNode>>();
+        ArrayList<LinkedList<TreeNode>> result = new ArrayList<>();
         LinkedList<TreeNode> current = new LinkedList<>();
         if(root != null) {
             current.add(root);

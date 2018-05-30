@@ -28,7 +28,7 @@ public class KthSmallestElementBST {
         findKthSmallestDFSInOrder(root.left, result);
 
         //visit root
-        result.count--;
+        result.count--; //we decrement first as we start at 0, 4th smallest is really 0-3
         if(result.count == 0) { //found match
             result.number = root.data;
             return;

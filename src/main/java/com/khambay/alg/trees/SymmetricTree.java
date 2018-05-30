@@ -49,10 +49,10 @@ public class SymmetricTree {
             if (t1.data != t2.data) {
                 return false;
             }
-            q.add(t1.left);
-            q.add(t2.right);
             q.add(t1.right);
             q.add(t2.left);
+            q.add(t1.left);
+            q.add(t2.right);
         }
         return true;
     }

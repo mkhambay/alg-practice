@@ -10,7 +10,7 @@ public class BinaryTreeFromPreorderInorderTraversal {
     }
 
     public static TreeNode helper(int preStart, int inStart, int inEnd, int[] preorder, int[] inorder) {
-        //b ase case
+        //base case
         if (preStart > preorder.length - 1 || inStart > inEnd) {
             return null;
         }

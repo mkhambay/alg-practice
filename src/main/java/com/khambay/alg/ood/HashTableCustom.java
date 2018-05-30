@@ -9,6 +9,7 @@ public class HashTableCustom<K, V> {
         public LinkedListNode<K, V> prev;
         public K key;
         public V value;
+
         public LinkedListNode(K k, V v) {
             key = k;
             value = v;
@@ -28,7 +29,7 @@ public class HashTableCustom<K, V> {
 
     public HashTableCustom(int capacity) {
         /* Create list of linked lists. */
-        arr = new ArrayList<LinkedListNode<K, V>>();
+        arr = new ArrayList<>();
         arr.ensureCapacity(capacity);
         for (int i = 0; i < capacity; i++) {
             arr.add(null);
@@ -46,7 +47,7 @@ public class HashTableCustom<K, V> {
         }
 
         //INSERT
-        node = new LinkedListNode<K, V>(key, value);
+        node = new LinkedListNode<>(key, value);
         int index = getIndexForKey(key);
         if (arr.get(index) != null) {
             node.next = arr.get(index);
