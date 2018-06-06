@@ -27,8 +27,8 @@ public class WordSearch {
             return false;
         }
 
-        if (board[row][col] != word[length]) {
-            return false;
+        if (board[row][col] != word[length]) { //char in board does not match char in word
+            return false; //fail fast, no further match
         }
 
         //board[y][x] ^= 256 it's a marker that the letter at position x,y is a part of word we search.

@@ -1,6 +1,5 @@
 package com.khambay.alg.arrays;
 
-import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -10,7 +9,7 @@ import java.util.Set;
 public class LongestConsecutiveSequence {
 
     public static int longestConsecutive(int[] nums) {
-        Set<Integer> num_set = new HashSet<>();
+        Set<Integer> num_set = new HashSet<>(); //to allow O(1) lookups
         for (int num : nums) {
             num_set.add(num);
         }

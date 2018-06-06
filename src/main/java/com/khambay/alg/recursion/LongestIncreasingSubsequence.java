@@ -17,12 +17,15 @@ public class LongestIncreasingSubsequence {
     public static int lengthOfLIS(int[] nums) {
         int[] dp = new int[nums.length];
         int len = 0;
+
         for (int num : nums) {
             int i = Arrays.binarySearch(dp, 0, len, num);
             if (i < 0) { //element not found, returns index of -(insertion) - 1 or -(len) - 1
                 i = -(i + 1); //if not found, binary search returns index as negative and with - 1. This step adds that back.
             }
+
             dp[i] = num;
+
             if (i == len) { //increment length when we find a new value to insert to dp
                 len++;
             }

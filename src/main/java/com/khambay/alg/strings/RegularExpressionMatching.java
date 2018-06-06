@@ -19,7 +19,7 @@ public class RegularExpressionMatching {
         char[] pattern = p.toCharArray();
         boolean dp[][] = new boolean[text.length + 1][pattern.length + 1];
 
-        dp[0][0] = true;
+        dp[0][0] = true; //if both string and pattern are empty, its true, its a pattern match
         //Set first row - Deals with patterns like a* or a*b* or a*b*c*
         for (int j = 1; j < dp[0].length; j++) {
             if (pattern[j-1] == '*') {
@@ -36,9 +36,11 @@ public class RegularExpressionMatching {
                 }
                 else if (pattern[j - 1] == '*')  {
                     dp[i][j] = dp[i][j - 2]; //ex xa* is same as x as a* is zero or more a's - take the value of without a
-                    if (pattern[j - 2] == '.' || pattern[j - 2] == text[i - 1]) {
-                        dp[i][j] = dp[i][j] |
-                                dp[i - 1][j]; //value on top/above
+
+                    if(dp[i][j] == false) { //we look at the value on top
+                        if (pattern[j - 2] == '.' || pattern[j - 2] == text[i - 1]) {
+                            dp[i][j] = dp[i - 1][j]; //value on top/above
+                        }
                     }
                 }
                 else {

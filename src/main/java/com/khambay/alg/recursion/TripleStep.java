@@ -6,9 +6,9 @@ public class TripleStep {
 
     public static int countWays(int n) {
         //n + 1 to store the result and return that
-        int[] map = new int[n + 1];
-        Arrays.fill(map, -1);
-        return countWays(n, map);
+        int[] memo = new int[n + 1];
+        Arrays.fill(memo, -1);
+        return countWays(n, memo);
     }
 
     public static int countWays(int n, int[] memo) {
