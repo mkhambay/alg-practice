@@ -1,12 +1,18 @@
 package com.khambay.alg.sorting;
 
-
+/**
+ * Compare the value with every previous value till start of array. If any is bigger, swap.
+ * Time - Best O(n) and worst O(n^2)
+ * Space - O(1)
+ *
+ * - Stable
+ */
 public class InsertionSort {
 
     public void insertionSort(int arr[]) {
         for (int i = 1; i < arr.length; i++) {
             for(int j = i ; j > 0 ; j--) {
-                if(arr[j] < arr[j-1]){
+                if(arr[j] < arr[j-1]) {
                     swap(arr, j, j-1);
                 }
             }

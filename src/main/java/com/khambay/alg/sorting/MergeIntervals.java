@@ -18,12 +18,14 @@ public class MergeIntervals {
         if (intervals.size() <= 1)
             return intervals;
 
+        //sort by interval start
         intervals.sort((i1, i2) -> Integer.compare(i1.start, i2.start));
 
         List<Interval> result = new LinkedList<>();
         int start = intervals.get(0).start;
         int end = intervals.get(0).end;
 
+        //Merge overlapping intervals
         for (Interval interval : intervals) {
             if (interval.start <= end) // Overlapping intervals, move the end if needed
                 end = Math.max(end, interval.end);

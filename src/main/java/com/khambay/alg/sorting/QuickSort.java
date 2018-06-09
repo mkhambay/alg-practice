@@ -1,5 +1,14 @@
 package com.khambay.alg.sorting;
 
+/**
+ * Time - Best O(n log(n)) Worst O(n^2)
+ * Space - O(log(n))
+ *
+ * - Partitioning in place (does not need an auxillary array and saves space)
+ * - Shuffling is needed for performance guarantee - probabilistic guarantee
+ * - Fastest in practice
+ * - Not Stable
+ */
 public class QuickSort {
 
     public void quickSort(int[] arr, int left, int right) {

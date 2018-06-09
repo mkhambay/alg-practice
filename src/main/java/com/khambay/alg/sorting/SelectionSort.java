@@ -1,6 +1,11 @@
 package com.khambay.alg.sorting;
 
-
+/**
+ * Starting with the first element, find the index of the smallest element, swap
+ *
+ * Time - O(n^2)
+ * Space - O(1)
+ */
 public class SelectionSort {
 
     public void sort(int arr[]) {

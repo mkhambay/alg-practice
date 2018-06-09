@@ -24,6 +24,9 @@ public class WiggleSort {
         int n = nums.length;
         int left = 0, i = 0, right = n - 1;
 
+        //After you get median element, the 'nums' is partially sorted such that the first half is larger or equal
+        //to the median, the second half is smaller or equal to the median
+
         while (i <= right) {
             int index = newIndex(i,n);
 

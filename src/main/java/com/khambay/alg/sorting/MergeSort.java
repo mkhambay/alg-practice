@@ -3,6 +3,12 @@ package com.khambay.alg.sorting;
 /**
  * Time - Best and Worst - O(nlogn)
  * Space - O(n)
+ *
+ * - Use auxiliary array
+ * - Keep split into 2 array
+ * - Sort each of them
+ * - Merge both arrays
+ * - Stable
  */
 public class MergeSort {
 

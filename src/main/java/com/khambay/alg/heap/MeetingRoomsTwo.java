@@ -1,7 +1,6 @@
 package com.khambay.alg.heap;
 
 import java.util.Arrays;
-import java.util.Comparator;
 import java.util.PriorityQueue;
 
 /**
@@ -17,18 +16,10 @@ public class MeetingRoomsTwo {
             return 0;
 
         // Sort the intervals by start time
-        Arrays.sort(intervals, new Comparator<Interval>() {
-            public int compare(Interval a, Interval b) {
-                return a.start - b.start;
-            }
-        });
+        Arrays.sort(intervals, (i1, i2) -> Integer.compare(i1.start, i2.start));
 
         // Use a min heap to track the minimum end time of merged intervals
-        PriorityQueue<Interval> heap = new PriorityQueue<>(intervals.length, new Comparator<Interval>() {
-            public int compare(Interval a, Interval b) {
-                return a.end - b.end;
-            }
-        });
+        PriorityQueue<Interval> heap = new PriorityQueue<>(intervals.length, (i1, i2) -> Integer.compare(i1.end, i2.end));
 
         // start with the first meeting, put it to a meeting room
         heap.add(intervals[0]);
