@@ -2,6 +2,9 @@ package com.khambay.alg.sorting;
 
 import java.util.Arrays;
 
+/**
+ * Similar to StringPermutation solution
+ */
 public class ValidAnagram {
 
     /**
