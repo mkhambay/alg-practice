@@ -1,6 +1,9 @@
 package com.khambay.alg.search;
 
 /**
+ * Modified Binary Search to find begin and end range
+ *
+ * https://leetcode.com/problems/search-for-a-range/solution/
  * Time - O(logn)
  * Space - O(1)
  */
@@ -12,14 +15,14 @@ public class SearchForARange {
             return result;
         }
 
-        int start = binarySearch(nums, target);
+        int start = binarySearch(nums, target); //gets start of the range
         if(start == nums.length || nums[start] != target) {
             return result;
         }
 
-        int end = binarySearch(nums, target+1);
+        int end = binarySearch(nums, target+1); //will make it go right when A[mid] == target to get end range
 
-        result = new int[]{start, (end - 1)};
+        result = new int[]{start, (end - 1)}; //since we were searching for target+1 above, end - 1 to get end range
         return result;
     }
 
@@ -32,13 +35,11 @@ public class SearchForARange {
 
             if (A[mid] < target) {
                 low = mid + 1; //go right
-            } else {
-                //should not be mid-1 when A[mid]==target.
-                //could be mid even if A[mid]>target because mid<high.
+            } else { //A[mid] == target or > target
                 high = mid; //go left
             }
         }
-        return low;
+        return low; //at this point low == high
     }
 
     public static void printArray(int[] arr) {

@@ -17,6 +17,7 @@ public class IntersectionOf2Arrays {
             return new int[0];
         }
 
+        //Map of Nums and Count
         Map<Integer, Integer> map = new HashMap<>();
         List<Integer> result = new ArrayList<>();
 
@@ -36,6 +37,7 @@ public class IntersectionOf2Arrays {
             }
         }
 
+        //Convert result to int array
         int[] r = new int[result.size()];
         for(int i = 0; i < result.size(); i++) {
             r[i] = result.get(i);
