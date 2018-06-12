@@ -26,12 +26,13 @@ public class RomanToInteger {
         int result = 0;
 
         for(int i = 0; i < s.length(); i++) {
-            //peek ahead to see if next char is less than current char
-            if(i < s.length() - 1 && romanMap.get(s.charAt(i)) < romanMap.get(s.charAt(i+1))) {
-                result -= romanMap.get(s.charAt(i));
+            //peek ahead to see if next char is greater than current char ex. IV
+            if(i < s.length() - 1 //boundry check for peek ahead
+                    && romanMap.get(s.charAt(i)) < romanMap.get(s.charAt(i+1))) {
+                result -= romanMap.get(s.charAt(i)); // ex. IV -> Removing value of I 1 from the result. When V = 5 added, only 4 gets added in total
             }
             else {
-                result += romanMap.get(s.charAt(i));
+                result += romanMap.get(s.charAt(i)); // ex. IV -> V = 5 gets added, but we removed -1 above, so only 4 gets added
             }
         }
         return result;

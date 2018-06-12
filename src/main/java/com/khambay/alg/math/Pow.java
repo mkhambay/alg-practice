@@ -11,15 +11,16 @@ public class Pow {
             x = 1 / x;  //have to divide the number in half if power is negative
             n = -n;     //switch negative power to positive for calculation
         }
-        double ans = 1;
+        double result = 1;
         double product = x;
+
         for (int pow = n; pow > 0; pow /= 2) {
             if ((pow % 2) == 1) { //if power is odd ex. 3 or it started with 4 and each time dividing by 2 will leave 1
-                ans = ans * product;
+                result = result * product;
             }
             product = product * product;
         }
-        return ans;
+        return result;
     }
 
     public static void main(String[] args) {

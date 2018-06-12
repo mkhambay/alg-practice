@@ -1,7 +1,8 @@
 package com.khambay.alg.math;
 
 /**
- * Time and Space - O(n) ?
+ * Time - O(n)
+ * Space - O(1)
  */
 public class ReverseInteger {
 
@@ -9,18 +10,15 @@ public class ReverseInteger {
         int result = 0;
 
         while (x != 0) {
-            int lastDigit = x % 10;
-            int newResult = result * 10 + lastDigit;
+            int digit = x % 10;
 
-            //Integer overflow check - function returns 0 when the reversed integer overflows
-            if ((newResult - lastDigit) / 10 != result) {
+            if (Math.abs(result) > Integer.MAX_VALUE / 10) {
                 return 0;
             }
 
-            result = newResult;
-            x = x / 10;
+            result = result * 10 + digit;
+            x /= 10;
         }
-
         return result;
     }
 

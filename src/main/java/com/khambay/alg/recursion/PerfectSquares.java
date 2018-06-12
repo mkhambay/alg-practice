@@ -3,6 +3,8 @@ package com.khambay.alg.recursion;
 import java.util.Arrays;
 
 /**
+ * https://leetcode.com/problems/perfect-squares/discuss/71495/An-easy-understanding-DP-solution-in-Java
+ *
  * Time - O(n^2)
  * Space - O(n)
  */
@@ -13,13 +15,14 @@ public class PerfectSquares {
         Arrays.fill(dp, Integer.MAX_VALUE);
         dp[0] = 0;
 
-        //note - i <= n as we start at 1 and upto n
-        for(int i = 1; i <= n; ++i) {
+        //note: i <= n as we start at 1 and upto n
+        for(int i = 1; i <= n; i++) {
             int min = Integer.MAX_VALUE;
             int j = 1;
+
             while(i - j*j >= 0) {
                 min = Math.min(min, dp[i - j*j] + 1);
-                ++j;
+                j++;
             }
             dp[i] = min;
         }
@@ -27,10 +30,12 @@ public class PerfectSquares {
     }
 
     public static void main(String[] args) {
-        //dp[1] = dp[0]+1 = 1
+        //dp[1] = Min{ dp[1 - 1*1]+1 }
+        //      = Min{ dp[0]+1 = 1}
         System.out.println("No of Perfect Squares 1 = " + numSquares(1));
 
-        //dp[2] = dp[1]+1 = 2
+        //dp[2] = Min{ dp[2-1*1]+1, dp[2-2*2]+1 }
+        //      = Min{ dp[1]+1, dp[0]+1 }
         System.out.println("No of Perfect Squares 2 = " + numSquares(2));
 
         //dp[4] = Min{ dp[4-1*1]+1, dp[4-2*2]+1 }

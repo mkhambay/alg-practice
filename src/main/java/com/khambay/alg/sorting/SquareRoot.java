@@ -21,8 +21,8 @@ public class SquareRoot {
 
             if (mid <= x/mid) { //go right
                 start = mid + 1;
-                result = mid;
-            } else { // If mid*mid is greater than x
+                result = mid; //capture result
+            } else {
                 end = mid - 1; //go left
             }
         }

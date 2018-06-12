@@ -7,7 +7,7 @@ package com.khambay.alg.math;
 public class StringToIntegerAtoi {
 
     public static int myAtoi(String str) {
-        int index = 0, sign = 1, total = 0;
+        int index = 0, sign = 1, result = 0;
         //1. Empty string
         if(str.length() == 0) {
             return 0;
@@ -17,7 +17,7 @@ public class StringToIntegerAtoi {
         while(str.charAt(index) == ' ') {
             index++;
             if(index == str.length()) { //edge case when String is just empty " "
-                return total * sign;
+                return result * sign;
             }
         }
 
@@ -30,20 +30,21 @@ public class StringToIntegerAtoi {
         //4. Convert number and avoid overflow
         while(index < str.length()) {
             int digit = str.charAt(index) - '0';
-            if(digit < 0 || digit > 9) {
+
+            if(digit < 0 || digit > 9) { //check if valid number
                 break;
             }
 
             //check if total will be overflow after 10 times and add digit
-            if(Integer.MAX_VALUE/10 < total || Integer.MAX_VALUE/10 == total && Integer.MAX_VALUE %10 < digit) {
+            if(result > Integer.MAX_VALUE/10 || result == Integer.MAX_VALUE/10 && digit > Integer.MAX_VALUE %10) {
                 return sign == 1 ? Integer.MAX_VALUE : Integer.MIN_VALUE;
             }
 
-            total = 10 * total + digit;
+            result = result * 10 + digit;
             index++;
         }
 
-        return total * sign;
+        return result * sign;
     }
 
     public static void main(String[] args) {
