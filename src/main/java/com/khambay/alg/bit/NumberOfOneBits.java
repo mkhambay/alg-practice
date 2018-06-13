@@ -14,7 +14,7 @@ public class NumberOfOneBits {
             if((n & mask) != 0) { //apply 1s mask and use & operator. 1 & 1 = 1, bit is set
                 result++;
             }
-            mask = mask << 1; //shift 1s bit to 1 left and keep doing it for all 32 bits
+            mask <<= 1; //shift 1s bit to 1 left and keep doing it for all 32 bits
         }
         return result;
     }
