@@ -62,12 +62,7 @@ public class MaxPointsOnALine {
                 y /= gcd;
 
                 String slope = x + ":" + y;
-                if (map.containsKey(slope)) {
-                    map.put(slope, map.get(slope) + 1);
-                }
-                else {
-                    map.put(slope, 1);
-                }
+                map.put(slope, map.getOrDefault(slope, 0) + 1);
                 max = Math.max(max, map.get(slope));
             }
             result = Math.max(result, max+overlap+1); //+1 for the origin
