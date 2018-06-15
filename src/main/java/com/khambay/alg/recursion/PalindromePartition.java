@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
+ * Similar to Subset problem
  * Time - O(n*(2^n))  isPalindrome is O(n)
  * Space - O(n)
  */
@@ -43,11 +44,9 @@ public class PalindromePartition {
         return true;
     }
 
-
     public static void main(String[] args) {
         String input = "aab";
         List<List<String>> result = partition(input);
         System.out.println("Result = " + result);
     }
-
 }
