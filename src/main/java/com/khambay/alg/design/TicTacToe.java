@@ -39,7 +39,7 @@ public class TicTacToe {
             diagonal += toAdd;
         }
 
-        if (col == (cols.length - row - 1)) {
+        if (col == (cols.length - 1 - row)) {
             antiDiagonal += toAdd;
         }
 

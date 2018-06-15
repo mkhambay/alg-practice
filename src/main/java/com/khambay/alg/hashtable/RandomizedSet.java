@@ -10,6 +10,8 @@ import java.util.Random;
 public class RandomizedSet {
 
     ArrayList<Integer> valList;   //Needed for O(1) Access time in getRandom
+    //Key - Value to be added
+    //Value - Index of the value in valList
     HashMap<Integer, Integer> valIndexMap;  //Has O(1) for Search, Insertion, Deletion
     Random rand;
 
