@@ -2,6 +2,10 @@ package com.khambay.alg.ood;
 
 import java.util.ArrayList;
 
+/**
+ * Uses Doubly Linked List for all the data nodes
+ * And ArrayList of LinkedLists to store by buckets
+ */
 public class HashTableCustom<K, V> {
 
     private static class LinkedListNode<K, V> {
@@ -50,6 +54,7 @@ public class HashTableCustom<K, V> {
         node = new LinkedListNode<>(key, value);
         int index = getIndexForKey(key);
         if (arr.get(index) != null) {
+            //add node to head
             node.next = arr.get(index);
             node.next.prev = node;
         }
@@ -71,9 +76,9 @@ public class HashTableCustom<K, V> {
         }
         else {
             //Remove head
-            int hashKey = getIndexForKey(key);
+            int index = getIndexForKey(key);
             //set head to next
-            arr.set(hashKey, node.next);
+            arr.set(index, node.next);
         }
 
         //Relink next node
