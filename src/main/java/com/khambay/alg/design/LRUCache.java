@@ -4,6 +4,10 @@ import java.util.HashMap;
 import java.util.Map;
 
 /**
+ * Uses a HashMap for quick key based lookup
+ * Uses a Doubly Linked List - helps with insertion, removal and doubly helps with removal from middle
+ * Head and Tail Pointers - help with keeping track for Least Recently Used - Head - recent and Tail - least recent
+ *
  * Time - O(1)
  * Doubly linked list - Insertion and Deletion is O(1)
  * Hash Map - Insertion, Deletion and Searching is O(1)
@@ -11,8 +15,8 @@ import java.util.Map;
 public class LRUCache {
 
     private class Node {
-        int key, value;
-        Node prev, next;
+        int key, value; //key and value both saved in node
+        Node prev, next; //double linked list so that we can remove a element from middle if needed
 
         Node(int k, int v) {
             this.key = k;
@@ -25,8 +29,10 @@ public class LRUCache {
     }
 
     private int capacity, count;
-    private Map<Integer, Node> map;
-    private Node head, tail;
+    //Key - Key
+    //Value - Node
+    private Map<Integer, Node> map; //to enable look up by key - this would be very slow if just linked list
+    private Node head, tail; //to keep track of least recently used - head points to recently used, tail points to least recently used
 
     public LRUCache(int capacity) {
         this.capacity = capacity;
@@ -34,7 +40,6 @@ public class LRUCache {
 
         map = new HashMap<>();
 
-        //Doubly Linked List
         head = new Node();
         tail = new Node();
         head.next = tail;
