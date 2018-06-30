@@ -25,11 +25,11 @@ public class Codec {
     private void buildString(TreeNode node, StringBuilder sb) {
         if (node == null) {
             sb.append(NN).append(spliter);
-        } else {
-            sb.append(node.data).append(spliter);
-            buildString(node.left, sb);
-            buildString(node.right,sb);
+            return;
         }
+        sb.append(node.data).append(spliter);
+        buildString(node.left, sb);
+        buildString(node.right,sb);
     }
 
     // Decodes your encoded data to tree.
