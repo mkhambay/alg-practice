@@ -7,17 +7,15 @@ package com.khambay.alg.sorting;
 public class SquareRoot {
 
     public static int floorSqrt(int x) {
-        // Base Cases
         if (x == 0 || x == 1)
             return x;
 
-        // Do Binary Search for floor(sqrt(x))
         int start = 1;
         int end = x;
         int result = 0;
 
         while (start <= end) {
-            int mid = start + (end - start) / 2;
+            int mid = start + ((end - start) / 2);
 
             if (mid <= x/mid) { //go right
                 start = mid + 1;

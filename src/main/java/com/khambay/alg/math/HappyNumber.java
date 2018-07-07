@@ -4,8 +4,8 @@ import java.util.HashSet;
 import java.util.Set;
 
 /**
- * Time - O(n^2) ?
- * Space - O(n)
+ * Time - O(logn) or almost O(1)
+ * Space - O(logn)
  */
 public class HappyNumber {
 

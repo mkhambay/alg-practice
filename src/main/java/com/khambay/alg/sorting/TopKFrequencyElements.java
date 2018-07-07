@@ -12,7 +12,7 @@ public class TopKFrequencyElements {
 
         //Array Index - Frequency
         //Array Value - List of Integers with that frequency
-        List<Integer>[] bucket = new List[nums.length + 1]; // +1 to match frequency number as java starts from 0
+        List<Integer>[] bucket = new ArrayList[nums.length + 1]; // +1 to match frequency number as java starts from 0
 
         //Key - Integer
         //Value - Frequency

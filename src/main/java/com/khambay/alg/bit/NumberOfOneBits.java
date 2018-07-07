@@ -11,7 +11,7 @@ public class NumberOfOneBits {
         int mask = 1;
 
         for(int i = 0; i < 32; i++) {
-            if((n & mask) != 0) { //apply 1s mask and use & operator. 1 & 1 = 1, bit is set
+            if((n & mask) != 0) { //apply 1s mask and use & operator. Note - Check not zero
                 result++;
             }
             mask <<= 1; //shift 1s bit to 1 left and keep doing it for all 32 bits

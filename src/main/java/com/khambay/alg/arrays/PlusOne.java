@@ -3,7 +3,7 @@ package com.khambay.alg.arrays;
 
 /**
  * Time - O(n)
- * Space - O(n)
+ * Space - O(n) - if original array is outgrown
  */
 public class PlusOne {
 
@@ -26,7 +26,7 @@ public class PlusOne {
             }
 
             if(digit >= 10) {
-                digits[i] = digit % 10; /* Get second digit */
+                digits[i] = digit % 10; /* Get last digit */
                 carry = 1;
             }
             else {

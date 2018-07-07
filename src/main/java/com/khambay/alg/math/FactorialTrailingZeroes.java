@@ -3,7 +3,7 @@ package com.khambay.alg.math;
 /**
  * https://leetcode.com/problems/factorial-trailing-zeroes/discuss/52432/3-lines-of-Java-O(logn)-time-O(1)-space
  *
- * Time - O(n) ?
+ * Time - O(5 base logn) ?
  * Space - O(1)
  */
 public class FactorialTrailingZeroes {

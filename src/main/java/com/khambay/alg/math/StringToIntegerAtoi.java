@@ -15,10 +15,10 @@ public class StringToIntegerAtoi {
 
         //2. Remove Spaces
         while(str.charAt(index) == ' ') {
-            index++;
-            if(index == str.length()) { //edge case when String is just empty " "
-                return result * sign;
+            if(index == str.length() - 1) { //edge case when String is just empty " "
+                return 0;
             }
+            index++;
         }
 
         //3. Handle signs
