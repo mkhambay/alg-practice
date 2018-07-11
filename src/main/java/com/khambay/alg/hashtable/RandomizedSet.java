@@ -1,18 +1,16 @@
 package com.khambay.alg.hashtable;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Random;
+import java.util.*;
 
 /**
  * All the operations are O(1) with the use of Array and Hash Table together
  */
 public class RandomizedSet {
 
-    ArrayList<Integer> valList;   //Needed for O(1) Access time in getRandom
+    List<Integer> valList;   //Needed for O(1) Access time in getRandom
     //Key - Value to be added
     //Value - Index of the value in valList
-    HashMap<Integer, Integer> valIndexMap;  //Has O(1) for Search, Insertion, Deletion
+    Map<Integer, Integer> valIndexMap;  //Has O(1) for Search, Insertion, Deletion
     Random rand;
 
     /** Initialize your data structure here. */
@@ -28,8 +26,8 @@ public class RandomizedSet {
             return false;
         }
 
-        valIndexMap.put(val, valList.size());
         valList.add(val);
+        valIndexMap.put(val, valList.size()-1);
         return true;
     }
 
@@ -55,7 +53,12 @@ public class RandomizedSet {
 
     /** Get a random element from the set. */
     public int getRandom() {
-        return valList.get( rand.nextInt(valList.size()));
+        if(valList.size() != 0) {
+            return valList.get(rand.nextInt(valList.size()));
+        }
+        else {
+            return 0;
+        }
     }
 
     public static void main(String[] args) {
