@@ -6,7 +6,7 @@ import java.util.List;
 import java.util.Map;
 
 /**
- * Time and Space - O(m+n)
+ * Time - O(m+n)
  * Space - O(n)
  */
 public class IntersectionOf2Arrays {

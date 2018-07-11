@@ -22,7 +22,7 @@ public class ShuffleAnArray {
     public int[] reset() {
         array = original;
         original = original.clone();
-        return original;
+        return array;
     }
 
     public int[] shuffle() {
