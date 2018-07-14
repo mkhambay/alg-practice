@@ -10,34 +10,32 @@ public class NumberOfIslands {
             return 0;
         }
 
-        int rowLength = grid.length;
-        int colLength = grid[0].length;
-
         int result = 0;
-        for(int r = 0; r < rowLength; r++) {
-            for(int c = 0; c < colLength; c++) {
+        for(int r = 0; r < grid.length; r++) {
+            for(int c = 0; c < grid[0].length; c++) {
                 if(grid[r][c] == '1') {
                     result++; //island found
                     //claim it by setting all surrounding 1s to 0 till the first 0 in row or column
-                    searchIslandsDFS(grid, r, c, rowLength, colLength);
+                    searchIslandsDFS(grid, r, c);
                 }
             }
         }
         return result;
     }
 
-    public static void searchIslandsDFS(char[][] grid, int r, int c, int rowLength, int colLength) {
+    public static void searchIslandsDFS(char[][] grid, int r, int c) {
         //base case
-        if(r < 0 || c < 0 || r >= rowLength || c >= colLength || grid[r][c] == '0') {
+        if(r < 0 || c < 0 || r >= grid.length || c >= grid[0].length || grid[r][c] == '0') {
             return;
         }
 
         //set current grid position to Zero
         grid[r][c] = '0';
-        searchIslandsDFS(grid, r - 1, c, rowLength, colLength);
-        searchIslandsDFS(grid, r + 1, c, rowLength, colLength);
-        searchIslandsDFS(grid, r, c - 1, rowLength, colLength);
-        searchIslandsDFS(grid, r, c + 1, rowLength, colLength);
+
+        searchIslandsDFS(grid, r - 1, c);
+        searchIslandsDFS(grid, r + 1, c);
+        searchIslandsDFS(grid, r, c - 1);
+        searchIslandsDFS(grid, r, c + 1);
     }
 
     public static void main(String[] args) {

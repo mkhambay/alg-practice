@@ -1,5 +1,9 @@
 package com.khambay.alg.sorting;
 
+/**
+ * Time - O(a+b)
+ * Space - O(1)
+ */
 public class SortedMerge {
 
     public static void merge(int[] a, int[] b, int idxEndA, int idxEndB) {

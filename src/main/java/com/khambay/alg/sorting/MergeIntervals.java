@@ -1,7 +1,5 @@
 package com.khambay.alg.sorting;
 
-import com.khambay.alg.heap.MeetingRoomsTwo;
-
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;

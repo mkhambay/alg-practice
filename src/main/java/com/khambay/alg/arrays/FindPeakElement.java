@@ -29,18 +29,18 @@ public class FindPeakElement {
     }
 
     //note - in this binary search, the nums list is not ordered
-    public static int search(int[] nums, int l, int r) {
+    public static int search(int[] nums, int low, int high) {
         //Base case
-        if (l == r)
-            return l; //found the peak
+        if (low == high)
+            return low; //found the peak
 
-        int mid = (l + r) / 2;
+        int mid = (low + high) / 2;
 
         if (nums[mid] > nums[mid + 1]) { //search left as the right side is sloping down
-            return search(nums, l, mid); // note - we don't do mid - 1 as in regular binary search
+            return search(nums, low, mid); // note - we don't do mid - 1 as in regular binary search
         }
         else {
-            return search(nums, mid + 1, r); //search right
+            return search(nums, mid + 1, high); //search right
         }
     }
 

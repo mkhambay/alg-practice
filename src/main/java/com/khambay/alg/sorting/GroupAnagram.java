@@ -1,31 +1,34 @@
 package com.khambay.alg.sorting;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.HashMap;
+import java.util.*;
 
+/**
+ * Time - O(nlogn) - Arrays.sort
+ * Space - O(n)
+ */
 public class GroupAnagram {
 
     public void groupAnagram(String[] arr) {
-        HashMap<String, ArrayList<String>> map = new HashMap<>();
+
+        Map<String, List<String>> map = new HashMap<>();
 
         for(int i = 0; i < arr.length; i++) {
             String sortedString = this.sortString(arr[i]);
 
             if(!map.containsKey(sortedString)) {
-                ArrayList<String> strings = new ArrayList();
+                List<String> strings = new ArrayList<>();
                 strings.add(arr[i]);
                 map.put(sortedString, strings);
             }
             else {
-                ArrayList stringList = map.get(sortedString);
+                List stringList = map.get(sortedString);
                 stringList.add(arr[i]);
             }
 
             //Write map back to array
             int index = 0;
             for(String key : map.keySet()) {
-                ArrayList<String> list = map.get(key);
+                List<String> list = map.get(key);
                 for(String str : list) {
                     arr[index] = str;
                     index++;

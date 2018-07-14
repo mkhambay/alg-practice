@@ -1,5 +1,9 @@
 package com.khambay.alg.sorting;
 
+/**
+ * Time - O(logn)
+ * Space - O(1)
+ */
 public class SearchNoSize {
 
     static class Listy {

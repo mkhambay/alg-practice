@@ -17,25 +17,26 @@ public class SurroundedRegions {
         //check first and last col
         for(int i = 0; i < rowLength; i++){
             if(board[i][0] == 'O') {
-                markZerosConnectedToBoundry(board,i,1);
+                markZerosConnectedToBoundry(board,i,1); //pass in 2nd col
             }
 
             if(board[i][colLength-1] == 'O') {
-                markZerosConnectedToBoundry(board,i,colLength-2);
+                markZerosConnectedToBoundry(board,i,colLength-2); //pass in 2nd last col
             }
         }
 
         //check first and last row
         for(int i = 0; i < colLength; i++){
             if(board[0][i] == 'O') {
-                markZerosConnectedToBoundry(board,1,i);
+                markZerosConnectedToBoundry(board,1,i); //pass in 2nd row
             }
+
             if(board[rowLength-1][i] == 'O') {
-                markZerosConnectedToBoundry(board,rowLength-2,i);
+                markZerosConnectedToBoundry(board,rowLength-2,i); //pass in 2nd last row
             }
         }
 
-        //Switch all 'O's to 'X's and 'Y's to 'O's
+        //Switch all 'O's to 'X's and 'Y's to 'O's - not including the first and last col and first and last row
         for(int i = 1; i < rowLength - 1; i++) {
             for(int j = 1; j < colLength - 1; j++) {
                 if (board[i][j] == 'Y') {
@@ -49,7 +50,8 @@ public class SurroundedRegions {
     }
 
     public static void markZerosConnectedToBoundry(char[][] board, int row, int col) {
-        if(row >= board.length - 1 || row <= 0 || col >= board[0].length - 1 || col <= 0) { //if row/col boundry, return
+        //note we make sure we don't hit first or last row/col
+        if(row >= board.length - 1 || row <= 0 || col >= board[0].length - 1 || col <= 0) {
             return;
         }
 
@@ -80,8 +82,8 @@ public class SurroundedRegions {
     public static void main(String[] args) {
         char[][] board = {
                 {'X','X','X','X'},
-                {'X','O','O','X'},
                 {'X','X','O','X'},
+                {'X','O','X','X'},
                 {'X','O','X','X'}
         };
         printGrid(board);

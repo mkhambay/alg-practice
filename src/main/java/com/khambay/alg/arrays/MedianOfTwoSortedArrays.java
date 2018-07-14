@@ -1,6 +1,7 @@
 package com.khambay.alg.arrays;
 
 /**
+ * https://leetcode.com/problems/median-of-two-sorted-arrays/discuss/2471/Very-concise-O(log(min(MN)))-iterative-solution-with-detailed-explanation
  * Time - O(log(min(m+n)))
  * Space - O(1)
  */
@@ -58,5 +59,9 @@ public class MedianOfTwoSortedArrays {
         int[] nums3 = {1, 2};
         int[] nums4 = {3, 4};
         System.out.println("Median = " + findMedianSortedArrays(nums3, nums4));
+
+        int[] nums5 = {1, 2, 3, 4, 5};
+        int[] nums6 = {1, 1, 1, 1};
+        System.out.println("Median = " + findMedianSortedArrays(nums5, nums6));
     }
 }

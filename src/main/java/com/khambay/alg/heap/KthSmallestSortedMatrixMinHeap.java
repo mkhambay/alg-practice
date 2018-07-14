@@ -24,7 +24,7 @@ public class KthSmallestSortedMatrixMinHeap {
             Tuple t = pq.poll(); //gets top element in heap, the minimum
 
             if(t.row == matrix.length - 1) { //row length reached
-                continue; //will just pop and continue to next in queue
+                continue; //will just pop and continue to next in queue - the next element in last row
             }
             pq.add(new Tuple(t.row + 1, t.col, matrix[t.row + 1][t.col])); //add next row, same column
         }

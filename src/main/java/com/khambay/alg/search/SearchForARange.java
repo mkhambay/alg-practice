@@ -3,7 +3,7 @@ package com.khambay.alg.search;
 /**
  * Modified Binary Search to find begin and end range
  *
- * https://leetcode.com/problems/search-for-a-range/solution/
+ * https://leetcode.com/problems/find-first-and-last-position-of-element-in-sorted-array/description/
  * Time - O(logn)
  * Space - O(1)
  */
@@ -28,7 +28,7 @@ public class SearchForARange {
 
     //find the first number that is greater than or equal to target.
     private static int binarySearch(int[] A, int target) {
-        int low = 0, high = A.length;
+        int low = 0, high = A.length; //note - high is length and not length - 1
 
         while (low < high) {
             int mid = (low + high) /2;
@@ -36,7 +36,7 @@ public class SearchForARange {
             if (A[mid] < target) {
                 low = mid + 1; //go right
             } else { //A[mid] == target or > target
-                high = mid; //go left
+                high = mid; //go left - high is mid and not mid - 1
             }
         }
         return low; //at this point low == high
