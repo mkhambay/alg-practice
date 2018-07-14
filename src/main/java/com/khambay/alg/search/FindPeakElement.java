@@ -1,4 +1,4 @@
-package com.khambay.alg.arrays;
+package com.khambay.alg.search;
 
 public class FindPeakElement {
 
