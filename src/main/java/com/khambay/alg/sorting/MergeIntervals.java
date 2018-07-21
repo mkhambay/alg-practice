@@ -61,6 +61,9 @@ public class MergeIntervals {
         intervals.add(new Interval(8,10));
         intervals.add(new Interval(15,18));
 
+        intervals.add(new Interval(1,4));
+        intervals.add(new Interval(0,4));
+
         List<Interval> merged = merge(intervals);
         System.out.println("Merged Intervals");
 

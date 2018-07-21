@@ -20,7 +20,7 @@ package com.khambay.alg.sorting;
 public class WiggleSort {
 
     public static void wiggleSort(int[] nums) {
-        int median = findKthLargest(nums, (nums.length + 1) / 2);
+        int median = KthLargestUnsortedArrayQuickSelect.findKthLargest(nums, (nums.length + 1) / 2);
         int n = nums.length;
         int left = 0, i = 0, right = n - 1;
 
@@ -62,46 +62,6 @@ public class WiggleSort {
     private static int newIndex(int index, int n) {
         int result = (1 + 2 * index) % (n | 1);
         return result;
-    }
-
-    public static int findKthLargest(int[] nums, int k) {
-        if (k < 1 || nums == null) {
-            return 0;
-        }
-        int kthLargest = nums.length - k; //ex. 2nd largest is the 5th element in a array of size 6
-        return getKth(kthLargest, nums, 0, nums.length - 1);
-    }
-
-    public static int getKth(int k, int[] nums, int start, int end) {
-        int pivotValue = nums[end];
-
-        int left = start;
-        int right = end;
-
-        while (true) {
-            while (nums[left] < pivotValue && left < right) {
-                left++;
-            }
-
-            while (nums[right] >= pivotValue && right > left) {
-                right--;
-            }
-
-            if (left == right) {
-                swap(nums, left, end);
-                break;
-            }
-
-            swap(nums, left, right);
-        }
-
-        if (k == left) {
-            return pivotValue;
-        } else if (k < left) {
-            return getKth(k, nums, start, left - 1);
-        } else {
-            return getKth(k, nums, left + 1, end);
-        }
     }
 
     public static void swap(int[] nums, int n1, int n2) {

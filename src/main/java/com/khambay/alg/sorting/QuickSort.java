@@ -12,13 +12,11 @@ package com.khambay.alg.sorting;
 public class QuickSort {
 
     public void quickSort(int[] arr, int left, int right) {
-        if(right <= left) {
-            return;
+        if(left < right) {
+            int pivotIndex = partition(arr, left, right);
+            quickSort(arr, left, pivotIndex - 1);
+            quickSort(arr, pivotIndex + 1, right);
         }
-
-        int pivotIndex = partition(arr, left, right);
-        quickSort(arr, left, pivotIndex -1);
-        quickSort(arr, pivotIndex + 1, right);
     }
 
     private int partition(int[] arr, int left, int right) {

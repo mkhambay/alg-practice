@@ -17,7 +17,7 @@ public class FirstMissingPositiveInteger {
                     || nums[i] > nums.length) { //value out of index match range
                 i++;
             }
-            else if (nums[nums[i] - 1] != nums[i]) { //put the number in its correct index
+            else if (nums[i] != nums[nums[i] - 1]) { //put the number in its correct index
                 swap(nums, i, nums[i] - 1);
             }
             else {

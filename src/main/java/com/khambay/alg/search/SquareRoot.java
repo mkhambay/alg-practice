@@ -1,4 +1,4 @@
-package com.khambay.alg.sorting;
+package com.khambay.alg.search;
 
 /**
  * Time - O(logn) - Binary Search

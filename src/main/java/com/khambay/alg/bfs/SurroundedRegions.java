@@ -90,5 +90,13 @@ public class SurroundedRegions {
         solve(board);
         System.out.println("Result=");
         printGrid(board);
+
+        char[][] board1 = {
+                {'O','O','O'},{'O','O','O'}, {'O','O','O'}
+        };
+        printGrid(board1);
+        solve(board1);
+        System.out.println("Result board1 =");
+        printGrid(board1);
     }
 }

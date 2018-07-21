@@ -1,4 +1,4 @@
-package com.khambay.alg.sorting;
+package com.khambay.alg.search;
 
 /**
  * Time - O(log n). Worst case - O(n) incase the array has duplicates, will have to search left and right

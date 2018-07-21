@@ -41,7 +41,7 @@ public class KthLargestUnsortedArrayQuickSelect {
                 left++;
             }
 
-            while (nums[right] >= pivotValue && right > left) {
+            while (nums[right] >= pivotValue && right > left) { //right is >= pivotValue
                 right--;
             }
 

@@ -23,7 +23,7 @@ public class WordSearch {
             return true;
         }
 
-        if (row < 0 || col < 0 || row == board.length || col == board[row].length) {
+        if (row < 0 || col < 0 || row == board.length || col == board[0].length) {
             return false;
         }
 
@@ -55,5 +55,8 @@ public class WordSearch {
         System.out.println("ABCCED = " + exist(board, "ABCCED"));
         System.out.println("SEE = " + exist(board, "SEE"));
         System.out.println("ABCB = " + exist(board, "ABCB"));
+
+        char[][] board1 = {{'a', 'b'}};
+        System.out.println("ba = " + exist(board1, "ba"));
     }
 }

@@ -1,4 +1,4 @@
-package com.khambay.alg.sorting;
+package com.khambay.alg.search;
 
 /**
  * Time - O(n) - worst case with lot of empty strings. Best could be O(logn)??

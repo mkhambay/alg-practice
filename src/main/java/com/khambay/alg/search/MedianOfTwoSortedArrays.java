@@ -54,7 +54,7 @@ public class MedianOfTwoSortedArrays {
     public static void main(String[] args) {
         int[] nums1 = {1, 3};
         int[] nums2 = {2};
-//        System.out.println("Median = " + findMedianSortedArrays(nums1, nums2));
+        System.out.println("Median = " + findMedianSortedArrays(nums1, nums2));
 
         int[] nums3 = {1, 2};
         int[] nums4 = {3, 4};
@@ -63,5 +63,9 @@ public class MedianOfTwoSortedArrays {
         int[] nums5 = {1, 2, 3, 4, 5};
         int[] nums6 = {1, 1, 1, 1};
         System.out.println("Median = " + findMedianSortedArrays(nums5, nums6));
+
+        int[] nums7 = {};
+        int[] nums8 = {1};
+        System.out.println("Median = " + findMedianSortedArrays(nums7, nums8));
     }
 }
