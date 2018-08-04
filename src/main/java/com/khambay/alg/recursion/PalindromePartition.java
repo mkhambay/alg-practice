@@ -16,17 +16,17 @@ public class PalindromePartition {
         return result;
     }
 
-    public static void backtrack(String s, int start, List<String> tempList, List<List<String>> result){
+    public static void backtrack(String s, int start, List<String> temp, List<List<String>> result){
         //base case
         if(start == s.length()){
-            result.add(new ArrayList<>(tempList));
+            result.add(new ArrayList<>(temp));
         }
         else {
             for (int i = start; i < s.length(); i++) {
                 if (isPalindrome(s, start, i)) {
-                    tempList.add(s.substring(start, i + 1));
-                    backtrack(s, i + 1, tempList, result);
-                    tempList.remove(tempList.size() - 1);
+                    temp.add(s.substring(start, i + 1));
+                    backtrack(s, i + 1, temp, result);
+                    temp.remove(temp.size() - 1);
                 }
             }
         }

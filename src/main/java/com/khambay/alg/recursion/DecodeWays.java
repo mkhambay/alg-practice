@@ -24,17 +24,16 @@ public class DecodeWays {
         memo[n - 1] = s.charAt(n - 1) != '0' ? 1 : 0;
 
         //start at the second last digit
-        for (int i = n - 2; i >= 0; i--)
+        for (int i = n - 2; i >= 0; i--) {
             if (s.charAt(i) == '0') {  //if digit 0, skip
                 continue;
-            }
-            else {
+            } else {
                 memo[i] = (Integer.parseInt(s.substring(i, i + 2)) <= 26) ? //If the last two digits form a valid character
-                                                                            // smaller than or equal to 26,
-                                memo[i + 1] + memo[i + 2] :                 // then consider last two digits to add to count
-                                memo[i + 1];                                // otherwise carry forward the earlier count
+                        // smaller than or equal to 26,
+                        memo[i + 1] + memo[i + 2] :                 // then consider last two digits to add to count
+                        memo[i + 1];                                // otherwise carry forward the earlier count
             }
-
+        }
         return memo[0]; //final count is at index 0
     }
 

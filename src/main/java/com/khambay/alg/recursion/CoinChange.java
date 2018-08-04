@@ -3,8 +3,10 @@ package com.khambay.alg.recursion;
 import java.util.Arrays;
 
 /**
- * Time - O(amount * n) - n is the denomination count
- * Space - O(amount)
+ * Time - O(a * c) c - number of coins and a - amount
+ * Space - O(a)
+ *
+ * similar to Perfect Squares
  */
 public class CoinChange {
 
@@ -15,7 +17,7 @@ public class CoinChange {
 
         for (int a = 1; a < dp.length; a++) { //fill in dp for amounts starting at 1 upto the amount needed ex. 1-11
             for (int c = 0; c < coins.length; c++) { //figure out the minimum number of coins need to make that amount a
-                if (coins[c] <= a) { //coin value should be less than or equal to amount ex. to make amount, 1 coin of value 2 is needed
+                if (coins[c] <= a) { //coin value should be less than or equal to amount ex. to make amount 2, 1 coin of value 2 is needed
                     dp[a] = Math.min(dp[a], dp[a - coins[c]] + 1); //we are looking for the minimum number of coins needed to make that amount and +1 for the current coin
                 }
             }
