@@ -30,12 +30,12 @@ public class PerfectSquares {
     }
 
     public static void main(String[] args) {
-        //dp[1] = Min{ dp[1 - 1*1]+1 }
+        //dp[1] = Min{ dp[1-1*1]+1 }
         //      = Min{ dp[0]+1 = 1}
         System.out.println("No of Perfect Squares 1 = " + numSquares(1));
 
-        //dp[2] = Min{ dp[2-1*1]+1, dp[2-2*2]+1 }
-        //      = Min{ dp[1]+1, dp[0]+1 }
+        //dp[2] = Min{ dp[2-1*1]+1}
+        //      = Min{ dp[1]+1}
         System.out.println("No of Perfect Squares 2 = " + numSquares(2));
 
         //dp[4] = Min{ dp[4-1*1]+1, dp[4-2*2]+1 }

@@ -1,15 +1,16 @@
 package com.khambay.alg.recursion;
 
 import java.util.ArrayList;
+import java.util.List;
 
-public class PermutationsWithoutDups {
+public class PermutationsStringsWithoutDups {
 
-    public static ArrayList<String> getPerms(String str) {
+    public static List<String> getPerms(String str) {
         if (str == null) {
             return null;
         }
 
-        ArrayList<String> permutations = new ArrayList<>();
+        List<String> permutations = new ArrayList<>();
         if (str.length() == 0) { //base case
             permutations.add("");
             return permutations;
@@ -17,7 +18,7 @@ public class PermutationsWithoutDups {
 
         char first = str.charAt(0); // get the first character
         String remainder = str.substring(1); // remove the first character
-        ArrayList<String> words = getPerms(remainder);
+        List<String> words = getPerms(remainder);
         for (String word : words) {
             for (int j = 0; j <= word.length(); j++) {
                 String s = insertCharAt(word, first, j);
@@ -34,7 +35,7 @@ public class PermutationsWithoutDups {
     }
 
     public static void main(String[] args) {
-        ArrayList<String> list = getPerms("abcde");
+        List<String> list = getPerms("abcde");
         System.out.println("There are " + list.size() + " permutations.");
         for (String s : list) {
             System.out.println(s);

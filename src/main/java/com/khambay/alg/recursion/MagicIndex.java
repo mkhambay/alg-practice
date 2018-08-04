@@ -6,23 +6,21 @@ public class MagicIndex {
         return magicIndexBinarySearch(array, 0, array.length - 1);
     }
 
-    public static int magicIndexBinarySearch(int[] array, int start, int end) {
-        if(start > end) {
+    //Regular binary search - looking for the index as the value being searched - in this case mid
+    public static int magicIndexBinarySearch(int[] a, int low, int high) {
+        if(low > high) {
             return -1;
         }
 
-        int midIndex = (start + end)/2;
-        int midValue = array[midIndex];
-        if(midValue == midIndex) {
-            return midIndex;
+        int mid = (low + high)/2;
+        if(a[mid] < mid) {
+            return magicIndexBinarySearch(a,mid +1, high);
         }
-        else if(midValue > midIndex) {
-            //go left
-            return magicIndexBinarySearch(array, start, midIndex - 1);
+        else if(a[mid] > mid) {
+            return magicIndexBinarySearch(a, low, mid - 1);
         }
         else {
-            //go right
-            return magicIndexBinarySearch(array, midIndex + 1, end);
+            return mid;
         }
     }
 
@@ -30,25 +28,27 @@ public class MagicIndex {
         return magicIndexWithDuplicates(array, 0, array.length - 1);
     }
 
-    public static int magicIndexWithDuplicates(int[] array, int start, int end) {
-        if (end < start) {
+    public static int magicIndexWithDuplicates(int[] a, int low, int high) {
+        if(low > high) {
             return -1;
         }
-        int midIndex = (start + end) / 2;
-        int midValue = array[midIndex];
-        if (midValue == midIndex) {
-            return midIndex;
+
+        int mid = (low + high) / 2;
+        int midValue = a[mid];
+
+        if (midValue == mid) {
+            return mid;
         }
         /* Search left */
-        int leftIndex = Math.min(midIndex - 1, midValue);
-        int left = magicIndexWithDuplicates(array, start, leftIndex);
+        int leftIndex = Math.min(mid - 1, midValue);
+        int left = magicIndexWithDuplicates(a, low, leftIndex);
         if (left >= 0) { //match found
             return left;
         }
 
         /* Search right */
-        int rightIndex = Math.max(midIndex + 1, midValue);
-        int right = magicIndexWithDuplicates(array, rightIndex, end);
+        int rightIndex = Math.max(mid + 1, midValue);
+        int right = magicIndexWithDuplicates(a, rightIndex, high);
 
         return right;
     }

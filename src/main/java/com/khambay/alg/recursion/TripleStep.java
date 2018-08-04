@@ -2,6 +2,9 @@ package com.khambay.alg.recursion;
 
 import java.util.Arrays;
 
+/**
+ * Time - O(n) - with the help of memo, otherwise it would have been O(3^n)
+ */
 public class TripleStep {
 
     public static int countWays(int n) {
@@ -12,13 +15,13 @@ public class TripleStep {
     }
 
     public static int countWays(int n, int[] memo) {
-        if (n < 0) {
+        if (n < 0) { //base case, reached end
             return 0;
         }
-        else if (n == 0) {
+        else if (n == 0) { //array starts at 0, return for 1 step
             return 1;
         }
-        else if (memo[n] > -1) {
+        else if (memo[n] > -1) { //get from cache
             return memo[n];
         }
         else {

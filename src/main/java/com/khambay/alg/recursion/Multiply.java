@@ -19,15 +19,13 @@ public class Multiply {
 
         //Divide small by 2  7 >> 1 = 3
         int smallHalved = small >> 1;
-        int midProduct = multiplyRecursive(smallHalved, big);
+        int product = multiplyRecursive(smallHalved, big);
 
         if (small % 2 == 0) {
-            //Even
-            return midProduct + midProduct;
+            return product + product;
         }
         else {
-            //Odd
-            return midProduct + midProduct + big;
+            return product + product + big;
         }
     }
 

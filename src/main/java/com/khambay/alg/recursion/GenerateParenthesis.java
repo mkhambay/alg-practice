@@ -1,4 +1,4 @@
-package com.khambay.alg.strings;
+package com.khambay.alg.recursion;
 
 import java.util.ArrayList;
 import java.util.List;

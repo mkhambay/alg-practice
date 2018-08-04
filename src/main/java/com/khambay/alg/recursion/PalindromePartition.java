@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Similar to Subset problem
+ * Similar to Subsets problem
  * Time - O(n*(2^n))  isPalindrome is O(n)
  * Space - O(n)
  */

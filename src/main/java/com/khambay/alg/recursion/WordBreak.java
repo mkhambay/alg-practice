@@ -17,7 +17,7 @@ public class WordBreak {
         memo[0] = true; //need this set for initial match
 
         //substring function endIndex is used as endIndex - 1 in the String implementation
-        //thats why end <= s.length ()
+        //thats why end <= s.length () and end starts at 1
         for (int end = 1; end <= s.length(); end++) {
             for (int start = 0; start < end; start++) {
                 if (memo[start] && wordDictSet.contains(s.substring(start, end))) {
