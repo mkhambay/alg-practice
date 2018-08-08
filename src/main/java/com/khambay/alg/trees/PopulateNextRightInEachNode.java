@@ -22,7 +22,7 @@ public class PopulateNextRightInEachNode {
         if(root.left != null) {
             root.left.next = root.right;
         }
-        if(root.next != null && root.right != null) {
+        if(root.right != null && root.next != null) {
             root.right.next = root.next.left;
         }
 

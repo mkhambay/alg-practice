@@ -14,18 +14,18 @@ public class LowestCommonAncestor {
         }
         TreeNode left = lowestCommonAncestor(root.left, p, q);
         TreeNode right = lowestCommonAncestor(root.right, p, q);
-//        return left == null ? right : right == null ? left : root;
+        return left == null ? right : right == null ? left : root;
 
         //result
-        if(left == null) {
-            return right;
-        }
-        else if(right == null) {
-            return left;
-        }
-        else { //both left and right are not null, we found our result
-            return root;
-        }
+//        if(left == null) {
+//            return right;
+//        }
+//        else if(right == null) {
+//            return left;
+//        }
+//        else { //both left and right are not null, we found our result
+//            return root;
+//        }
     }
 
     public static void main(String[] args) {

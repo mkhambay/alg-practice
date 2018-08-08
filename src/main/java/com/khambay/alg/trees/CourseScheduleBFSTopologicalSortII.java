@@ -60,13 +60,13 @@ public class CourseScheduleBFSTopologicalSortII {
     }
 
     public static void main(String[] args) {
-        int[][] prerequisites = {{1,0}};
-        System.out.println("Can take 2 courses with prerequisites = {{1,0}} ?? ");
-        printArray(findOrder(2, prerequisites));
-
-        int[][] prerequisites1 = {{1,0}, {2,1}, {3,1}, {3,2}};
-        System.out.println("Can take 2 courses with prerequisites = {{1,0}, {2,1}, {3,1}, {3,2}}");
-        printArray(findOrder(4, prerequisites1));
+//        int[][] prerequisites = {{1,0}};
+//        System.out.println("Can take 2 courses with prerequisites = {{1,0}} ?? ");
+//        printArray(findOrder(2, prerequisites));
+//
+//        int[][] prerequisites1 = {{1,0}, {2,1}, {3,1}, {3,2}};
+//        System.out.println("Can take 2 courses with prerequisites = {{1,0}, {2,1}, {3,1}, {3,2}}");
+//        printArray(findOrder(4, prerequisites1));
 
         int[][] prerequisites2 = {
                 {11,5}, {11,7},

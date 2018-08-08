@@ -11,7 +11,7 @@ public class BinaryTreeFromPreorderInorderTraversal {
 
     public static TreeNode helper(int preStart, int inStart, int inEnd, int[] preorder, int[] inorder) {
         //base case
-        if (preStart > preorder.length - 1 || inStart > inEnd) {
+        if (preStart >= preorder.length || inStart > inEnd) {
             return null;
         }
 

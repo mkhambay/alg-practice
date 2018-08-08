@@ -24,12 +24,12 @@ public class Graph {
 
     public void breadthFirstSearch(int vertex) {
         boolean visited[] = new boolean[this.vertices.length]; //keep track for visited nodes
-        LinkedList<Integer> queue = new LinkedList<>();
+        Queue<Integer> queue = new LinkedList<>();
 
         visited[vertex] = true;
         queue.add(vertex);
 
-        while (queue.size() != 0) {
+        while (!queue.isEmpty()) {
             vertex = queue.poll();
             visit(vertex);
 
@@ -44,12 +44,12 @@ public class Graph {
 
     public boolean routeBetweenNodes(int startVertex, int endVertex) {
         boolean [] visited = new boolean[vertices.length];
-        LinkedList<Integer> queue = new LinkedList<>();
+        Queue<Integer> queue = new LinkedList<>();
 
         visited[startVertex] = true;
         queue.add(startVertex);
 
-        while(queue.size() != 0) {
+        while(!queue.isEmpty()) {
             startVertex = queue.poll();
 
             for(int num : vertices[startVertex]) {

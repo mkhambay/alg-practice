@@ -36,7 +36,7 @@ public class BinaryTreeInorderTraversal {
      * Time and Space - O(n)
      */
     public static List <Integer> inorderTraversalIterative(TreeNode root) {
-        List<Integer> res = new ArrayList<>();
+        List<Integer> result = new ArrayList<>();
         Stack<TreeNode> stack = new Stack<>();
 
         TreeNode curr = root;
@@ -48,10 +48,10 @@ public class BinaryTreeInorderTraversal {
                 curr = curr.left;
             }
             curr = stack.pop(); //with stack last one comes out first. Incase of right null, the root is visited
-            res.add(curr.data); //at the very bottom, its the last left node
+            result.add(curr.data); //at the very bottom, its the last left node
             curr = curr.right; //at the very bottom, this will be null
         }
-        return res;
+        return result;
     }
 
     public static void main(String[] args) {
@@ -59,6 +59,11 @@ public class BinaryTreeInorderTraversal {
         TreeNode tree = TreeNode.createMinimalBST(arr);
         List<Integer> result = inorderTraversal(tree);
         System.out.println("Result=" + result);
-        System.out.println("Result Iterative = " + inorderTraversalIterative(tree));
+        //System.out.println("Result Iterative = " + inorderTraversalIterative(tree));
+
+        int[] arr1 = {1,2,3,4,5,6,7,8,9};
+        TreeNode tree1 = TreeNode.createMinimalBST(arr1);
+        List<Integer> result1 = inorderTraversalIterative(tree1);
+        System.out.println("Result 1 = " + result1);
     }
 }

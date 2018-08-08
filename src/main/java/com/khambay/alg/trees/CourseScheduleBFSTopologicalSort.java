@@ -5,6 +5,8 @@ import java.util.Queue;
 
 /**
  * Time and Space - O(v*e) - v: vertices and e: edges
+ *
+ * https://en.wikipedia.org/wiki/Topological_sorting
  */
 public class CourseScheduleBFSTopologicalSort {
 

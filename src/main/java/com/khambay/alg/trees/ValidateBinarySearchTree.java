@@ -12,7 +12,7 @@ public class ValidateBinarySearchTree {
     private static boolean checkBST(TreeNode root, Integer min, Integer max) {
         //base case
         if(root == null) {
-            return true;
+            return true; //reached the bottom and everything checked out
         }
 
         if((min != null && root.data <= min) || //right side - cannot be equal to root
