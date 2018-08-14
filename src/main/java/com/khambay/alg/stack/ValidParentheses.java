@@ -46,24 +46,24 @@ public class ValidParentheses {
 
 
     public static boolean isValid(String s) {
-        Map<Character, Character> charMap = new HashMap<>();
-        charMap.put('(', ')');
-        charMap.put('{', '}');
-        charMap.put('[', ']');
+        Map<Character, Character> map = new HashMap<>();
+        map.put('(', ')');
+        map.put('{', '}');
+        map.put('[', ']');
 
-        Stack<Character> charStack = new Stack();
+        Stack<Character> stack = new Stack();
 
         for(int i = 0; i < s.length(); i++) {
             char c = s.charAt(i);
 
-            if(charMap.containsKey(c)) {
+            if(map.containsKey(c)) { //check valid char
                 //Add to stack for eval
-                charStack.push(c);
+                stack.push(c);
             }
-            else if(charMap.values().contains(c)) {
-                if(!charStack.isEmpty() && charMap.get(charStack.peek()) == c) {
+            else if(map.values().contains(c)) { //check valid char
+                if(!stack.isEmpty() && map.get(stack.peek()) == c) {
                     //Found the match, remove from stack
-                    charStack.pop();
+                    stack.pop();
                 }
                 else {
                     return false;
@@ -74,10 +74,13 @@ public class ValidParentheses {
             }
         }
         //At this point if everything matched up, the stack should be empty
-        return charStack.isEmpty();
+        return stack.isEmpty();
     }
 
     public static void main(String[] args) {
+        String test0 = "{[]}";
+        System.out.println("Testing " + test0 + " is Valid = " + isValid(test0));
+
         String test1 = "{}[]()";
         System.out.println("Testing " + test1 + " is Valid = " + isValid(test1));
 
