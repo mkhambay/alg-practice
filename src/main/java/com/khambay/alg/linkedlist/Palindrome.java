@@ -2,6 +2,9 @@ package com.khambay.alg.linkedlist;
 
 import java.util.Stack;
 
+/**
+ * Time and Space - O(n)
+ */
 public class Palindrome {
     
     static class Node {
@@ -20,7 +23,7 @@ public class Palindrome {
         Node fast = head;
         Node slow = head;
 
-        Stack<Integer> stack = new Stack<Integer>();
+        Stack<Integer> stack = new Stack<>();
 
         while (fast != null && fast.next != null) {
             stack.push(slow.data);
@@ -33,8 +36,8 @@ public class Palindrome {
             slow = slow.next;
         }
 
-        while (slow != null) {
-            int top = stack.pop().intValue();
+        while (slow != null && !stack.isEmpty()) {
+            Integer top = stack.pop();
             if (top != slow.data) {
                 return false;
             }

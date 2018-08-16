@@ -1,5 +1,8 @@
 package com.khambay.alg.linkedlist;
 
+/**
+ * Time and Space - O(n) - Space due to recursive call
+ */
 public class PartialSum {
 
     static class Node {
@@ -19,24 +22,18 @@ public class PartialSum {
             return null;
         }
 
-        Node result = new Node();
-        int value = carry;
-        if(l1 != null) {
-            value += l1.data;
-        }
-        if(l2 != null) {
-            value += l2.data;
-        }
+        int sum = carry;
 
-        result.data = value % 10; /* Get second digit */
+        if(l1 != null) sum += l1.data;
+        if(l2 != null) sum += l2.data;
 
-        //Recurse
-        if(l1 != null || l2 != null) {
-            Node more = addLists(l1 == null? null : l1.next,
-                                    l2 == null? null : l2.next,
-                                    value >= 10 ? 1 : 0);
+        Node result = new Node(sum % 10); //get the 2nd digit
+        carry = sum >= 10 ? 1 : 0;
 
-            result.next = more;
+        if(l1 != null || l2 != null) { //one list could be shorter than another, thats why null check with OR
+            result.next = addLists(l1 == null ? null : l1.next,
+                                    l2 == null ? null : l2.next,
+                                    carry);
         }
         return result;
     }

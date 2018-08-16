@@ -236,6 +236,8 @@ public class LinkedList {
         return result;
     }
 
+    //Time - O(n)
+    //Space - O(1)
     public Node valueNthFromEndGabe(int k) throws Exception{
         Node p1 = head;
         Node p2 = head;
@@ -253,6 +255,8 @@ public class LinkedList {
         return p2;
     }
 
+    //Time - O(n^2)
+    //Space - O(1)
     public void removeDups() throws Exception {
         if(head == null)
             throw new Exception("Error: Empty list");
@@ -276,8 +280,9 @@ public class LinkedList {
         }
     }
 
+    //Time and Space - O(n)
     public void removeDupsEfficient() throws Exception {
-        HashSet<Integer> set = new HashSet<Integer>();
+        HashSet<Integer> set = new HashSet<>();
         Node previous = null;
         Node n = head;
 
@@ -320,6 +325,7 @@ public class LinkedList {
         }
     }
 
+    //Time and Space O(1)
     public boolean deleteNodeGabe(Node n) {
         if(n == null || n.next == null) {
             return false;
