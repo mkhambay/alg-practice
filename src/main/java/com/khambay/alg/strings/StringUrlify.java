@@ -1,9 +1,15 @@
 package com.khambay.alg.strings;
 
+/**
+ * Time - O(n)
+ * Space - O(1)
+ */
 public class StringUrlify {
 
     public void replaceSpaces(char[] str, int length) {
         int spaceCount = 0, newLength, i;
+
+        //Get space count
         for(i = 0; i < length; i++) {
             if(str[i] == ' ') {
                 spaceCount++;

@@ -4,35 +4,8 @@ import java.util.Arrays;
 
 public class StringPermutation {
 
-    public boolean isPermutation(String a, String b) {
-        if (a.length() != b.length())
-            return false;
-
-        boolean found = false;
-        int count = 0;
-
-        for(int i = 0; i < a.length(); i++) {
-            for(int j = 0; j< b.length(); j++){
-                if(a.charAt(i) == b.charAt(j)) {
-                    found = true;
-                    count++;
-                    break;
-                }
-            }
-        }
-
-        if(count != a.length()) {
-            found = false;
-        }
-        return found;
-    }
-
-    private String sort(String s) {
-        char[] stringArray = s.toCharArray();
-        Arrays.sort(stringArray);
-        return new String(stringArray);
-    }
-
+    //Time - O(nlogn) - Arrays.sort
+    //Space - O(1)
     public boolean isPermutationGabeSorting(String a, String b) {
         if(a.length() != b.length()) {
             return false;
@@ -41,23 +14,28 @@ public class StringPermutation {
         return sort(a).equals(sort(b));
     }
 
+    private String sort(String s) {
+        char[] stringArray = s.toCharArray();
+        Arrays.sort(stringArray);
+        return new String(stringArray);
+    }
+
+    //Time - O(n)
+    //Space - O(1)
     public boolean isPermutationGabeCharacterCounts(String s, String t) {
         if(s.length() != t.length()) {
             return false;
         }
 
-        int[] letters = new int[128];
+        int[] chars = new int[128];
 
-        char[] s_array = s.toCharArray();
-
-        for(char c: s_array) {
-            letters[c]++;
+        for(char c: s.toCharArray()) {
+            chars[c]++;
         }
 
-        for(int i = 0; i < t.length(); i++) {
-            int c = t.charAt(i);
-            letters[c]--;
-            if(letters[c] < 0) {
+        for(char d: t.toCharArray()) {
+            chars[d]--;
+            if(chars[d] < 0) {
                 return false;
             }
         }

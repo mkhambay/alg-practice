@@ -1,5 +1,9 @@
 package com.khambay.alg.strings;
 
+/**
+ * Time - O(n)
+ * Space - (1)
+ */
 public class OneAway {
 
     boolean oneEditAway(String first, String second) {
@@ -12,7 +16,7 @@ public class OneAway {
         else if(first.length() - 1 == second.length()) { //second is smaller
             return oneEditInsert(second, first);
         }
-        return false;
+        return false; //more than one char away ex. pale, palent
     }
 
     boolean oneEditReplace(String s1, String s2) {
@@ -31,24 +35,24 @@ public class OneAway {
     }
 
     boolean oneEditInsert(String small, String big) {
-        int indexSmall = 0;
-        int indexBig = 0;
+        int i = 0;
+        int j = 0;
         boolean foundDifference = false;
 
-        while(indexBig < big.length() && indexSmall < small.length()) {
+        while(i < small.length() && j < big.length()) {
 
-            //checks for only 1 difference and moves only pointer indexBig++. If the rest of the string does
-            //not match remaining indexSmall, it returns false.
-            if(small.charAt(indexSmall) != big.charAt(indexBig)) {
+            //checks for only 1 difference and moves only pointer j++. If the rest of the string does
+            //not match remaining small, it returns false.
+            if(small.charAt(i) != big.charAt(j)) {
                 if(foundDifference) {
                     return false;
                 }
                 foundDifference = true;
-                indexBig++; //skip one char in the bigger string
+                j++; //skip one char in the bigger string
             }
             else {
-                indexSmall++;
-                indexBig++;
+                i++;
+                j++;
             }
         }
         return true;

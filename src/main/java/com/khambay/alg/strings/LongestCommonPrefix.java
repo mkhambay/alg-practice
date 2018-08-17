@@ -17,22 +17,25 @@ public class LongestCommonPrefix {
         //Vertical scanning
 
         //loop through first string each character
-        for(int i = 0; i < strs[0].length(); i++) {
-            char c = strs[0].charAt(i);
+        String first = strs[0];
+
+        for(int i = 0; i < first.length(); i++) {
+            char c = first.charAt(i);
 
             //compare to each char of remaining strings
             for(int j = 1; j < strs.length; j++) {
+                String str = strs[j];
 
                 //as soon as the chars don't match, return the substring of first string
-                if(i == strs[j].length() //always check if strs length, boundry check
-                        || strs[j].charAt(i) != c) {
-                    return strs[0].substring(0, i);
+                if(i == str.length() //the strings could be smaller in size than first
+                        || str.charAt(i) != c) {
+                    return first.substring(0, i);
                 }
             }
         }
 
         //all matched the first string entirely
-        return strs[0];
+        return first;
     }
 
     public static void main(String[] args) {

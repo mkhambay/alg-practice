@@ -1,6 +1,8 @@
 package com.khambay.alg.strings;
 
 /**
+ * Time - O(n)
+ * Space - O(1)
  * Palindrome - all characters with even count OR just one with odd count
  */
 public class PalindromePermutation {

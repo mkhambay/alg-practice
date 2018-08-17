@@ -1,20 +1,23 @@
 package com.khambay.alg.strings;
 
+/**
+ * Time and Space - O(n) - space could be less due to compression, worst case would be O(n) incase of no compression
+ */
 public class StringCompression {
 
     public String compressGabe(String str) {
         StringBuilder compressed = new StringBuilder();
-        int countConsecutive = 0;
+        int count = 0;
 
         for(int i = 0; i < str.length(); i++) {
-            countConsecutive++;
+            count++;
 
             if(i + 1 == str.length() //at the last character
                     || str.charAt(i) != str.charAt(i + 1) //peek ahead
             ) {
                 compressed.append(str.charAt(i));
-                compressed.append(countConsecutive);
-                countConsecutive = 0;
+                compressed.append(count);
+                count = 0;
             }
         }
         return compressed.length() < str.length() ? compressed.toString() : str;

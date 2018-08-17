@@ -2,44 +2,14 @@ package com.khambay.alg.strings;
 
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.LinkedList;
 import java.util.List;
 
 /**
- * Time - O(k*n^2)
- * k is the mapping length (2 -> ‘abc’, 3 -> ‘def’ and so on)
- * n is the number of digits
+ * Time - O(n^n) - n number of digits - Similar to PermutationsIntegers and Subsets
+ * Space - O(m) - m number of unique combinations for every recursive call
  */
 public class LetterCombinationsPhoneNumber {
 
-    public static List<String> letterCombinations(String digits) {
-        LinkedList<String> ans = new LinkedList<>();
-
-        if(digits.isEmpty()) {
-            return ans;
-        }
-
-        String[] mapping = {"0", "1", "abc", "def", "ghi", "jkl", "mno", "pqrs", "tuv", "wxyz"};
-        ans.add("");
-
-        for(int i = 0; i < digits.length(); i++){
-            int x = Character.getNumericValue(digits.charAt(i));
-
-            while(ans.peek().length() == i) {
-                String t = ans.remove();
-
-                for(char s : mapping[x].toCharArray()) {
-                    ans.add(t + s);
-                }
-            }
-        }
-        return ans;
-    }
-
-    /**
-     * Time - O(n^n) - n number of digits
-     * Space - O(m) - m number of unique combinations for every recursive call
-     */
     public static List<String> letterCombinationsRecursive(String digits) {
         List<String> result = new ArrayList<>();
 
@@ -80,12 +50,8 @@ public class LetterCombinationsPhoneNumber {
         }
     }
 
-
     public static void main(String[] args) {
-//        List<String> ans = letterCombinations("23");
-//        System.out.println(ans);
-
-        List<String> ans1 = letterCombinationsRecursive("23");
-        System.out.println(ans1);
+        List<String> ans = letterCombinationsRecursive("23");
+        System.out.println(ans);
     }
 }
