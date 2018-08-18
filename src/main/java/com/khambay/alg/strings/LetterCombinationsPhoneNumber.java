@@ -5,7 +5,7 @@ import java.util.HashMap;
 import java.util.List;
 
 /**
- * Time - O(n^n) - n number of digits - Similar to PermutationsIntegers and Subsets
+ * Time - O(n^n) - n number of digits - Similar to PermutationsIntegers, Subsets and PalindromePartition
  * Space - O(m) - m number of unique combinations for every recursive call
  */
 public class LetterCombinationsPhoneNumber {
@@ -33,20 +33,20 @@ public class LetterCombinationsPhoneNumber {
 
     }
 
-    public static void buildCombinations(List<String> result, StringBuilder sb, String digits, int index, HashMap<Character, String> map){
+    public static void buildCombinations(List<String> result, StringBuilder temp, String digits, int start, HashMap<Character, String> map){
         //Base case
-        if(index >= digits.length()) {
-            result.add(sb.toString());
+        if(start == digits.length()) {
+            result.add(temp.toString());
             return;
         }
 
-        char d = digits.charAt(index);
+        char d = digits.charAt(start);
         char[] arr = map.get(d).toCharArray();
 
         for(int i = 0; i < arr.length; i++) {
-            sb.append(arr[i]);
-            buildCombinations(result, sb, digits, index + 1, map);
-            sb.deleteCharAt(sb.length() - 1);
+            temp.append(arr[i]);
+            buildCombinations(result, temp, digits, start + 1, map);
+            temp.deleteCharAt(temp.length() - 1);
         }
     }
 

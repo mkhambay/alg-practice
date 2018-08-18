@@ -42,11 +42,11 @@ public class BasicCalculatorII {
             }
         }
 
-        int re = 0;
+        int result = 0;
         for(int i : stack){ //sum up the stack based on operator precedence, * and / are already done. Leaving - and +
-            re += i;
+            result += i;
         }
-        return re;
+        return result;
     }
 
     public static void main(String[] args) {
