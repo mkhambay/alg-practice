@@ -1,5 +1,7 @@
 package com.khambay.alg.stack;
 
+import java.util.EmptyStackException;
+
 public class MinStack {
 
     public class Stack {
@@ -8,7 +10,7 @@ public class MinStack {
             int data;
             Node next;
 
-            public Node(int data) {
+            Node(int data) {
                 this.data = data;
             }
         }
@@ -28,18 +30,18 @@ public class MinStack {
             top = n;
         }
 
-        public int pop() throws Exception {
+        public int pop() {
             if(top == null) {
-                throw new Exception("Empty stack");
+                throw new EmptyStackException();
             }
             Node n = top;
             top = top.next;
             return n.data;
         }
 
-        public int peek() throws Exception {
+        public int peek() {
             if(top == null) {
-                throw new Exception("Empty stack");
+                throw new EmptyStackException();
             }
             return top.data;
         }
@@ -67,14 +69,14 @@ public class MinStack {
     private Stack stackData = new Stack();
     private Stack stackMin = new Stack();
 
-    public void push(int data) throws Exception {
+    public void push(int data) {
         if(data <= min()) {
             stackMin.push(data);
         }
         stackData.push(data);
     }
 
-    public int pop() throws Exception {
+    public int pop() {
         int popData = stackData.pop();
         if(popData == min()) {
             stackMin.pop();
@@ -82,7 +84,7 @@ public class MinStack {
         return popData;
     }
 
-    public int min() throws Exception {
+    public int min() {
         if(stackMin.isEmpty()) {
             return Integer.MAX_VALUE;
         }
