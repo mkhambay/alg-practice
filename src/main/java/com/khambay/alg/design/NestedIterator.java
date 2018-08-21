@@ -7,26 +7,26 @@ public class NestedIterator implements Iterator<Integer> {
 
     public class Stack<T> {
 
-        class StackNode {
+        class Node {
             T val;
-            StackNode next;
+            Node next;
 
-            public StackNode(T val) {
+            public Node(T val) {
                 this.val = val;
             }
         }
 
-        StackNode head;
+        Node head;
 
         public void push(T val) {
-            StackNode s = new StackNode(val);
+            Node s = new Node(val);
             s.next = head;
             head = s;
         }
 
         public T pop() {
             if(head != null) {
-                StackNode node = head;
+                Node node = head;
                 head = head.next;
                 return node.val;
             }

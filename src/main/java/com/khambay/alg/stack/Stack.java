@@ -2,18 +2,18 @@ package com.khambay.alg.stack;
 
 import java.util.EmptyStackException;
 
-public class MyStack<T> {
+public class Stack<T> {
 
-    private static class StackNode<T> {
+    private class Node<T> {
         private T data;
-        private StackNode<T> next;
+        private Node<T> next;
 
-        public StackNode(T data) {
+        public Node(T data) {
             this.data = data;
         }
     }
 
-    private StackNode<T> top;
+    private Node<T> top;
 
     public T pop() {
         if(top == null) {
@@ -25,7 +25,7 @@ public class MyStack<T> {
     }
 
     public void push(T item) {
-        StackNode<T> t = new StackNode<>(item);
+        Node<T> t = new Node<>(item);
         t.next = top;
         top = t;
     }
@@ -42,7 +42,7 @@ public class MyStack<T> {
     }
 
     public static void main(String[] args) {
-        MyStack<Integer> intStack = new MyStack<>();
+        Stack<Integer> intStack = new Stack<>();
         intStack.push(1);
 
         Integer peek = intStack.peek();

@@ -325,7 +325,7 @@ public class LinkedList {
         }
     }
 
-    //Time and Space O(1)
+    //Time and Space O(
     public boolean deleteNodeGabe(Node n) {
         if(n == null || n.next == null) {
             return false;

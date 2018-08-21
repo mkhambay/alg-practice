@@ -20,6 +20,10 @@ public class Palindrome {
     }
 
     public static boolean isPalindrome(Node head) {
+        if(head == null || head.next == null) {
+            return true;
+        }
+
         Node fast = head;
         Node slow = head;
 

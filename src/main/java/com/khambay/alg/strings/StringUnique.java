@@ -11,8 +11,7 @@ public class StringUnique {
             return false;
 
         boolean[] chars = new boolean[128];
-        for(int i = 0; i < str.length(); i++) {
-            char c = str.charAt(i);
+        for(char c : str.toCharArray()) {
             if(chars[c]) {
                 return false;
             }

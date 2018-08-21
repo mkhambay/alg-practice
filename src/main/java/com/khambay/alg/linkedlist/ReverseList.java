@@ -9,17 +9,13 @@ public class ReverseList {
     }
 
     public static ListNode reverseList(ListNode head) {
+        if(head == null || head.next == null) {
+            return head;
+        }
+
         ListNode current = head;
         ListNode previous = null;
         ListNode next = null;
-
-        if(head == null) {
-            return null;
-        }
-
-        if(head.next == null) {
-            return head;
-        }
 
         while(current != null) {
             next = current.next;
