@@ -13,7 +13,8 @@ public class CountAndSay {
             StringBuilder sb = new StringBuilder();
             int count = 1;
             for (int j = 1; j <= s.length(); j++) {
-                if (j == s.length() || s.charAt(j - 1) != s.charAt(j)) {
+                if (j == s.length() //also needed to kick off when String only has "1" in it
+                        || s.charAt(j - 1) != s.charAt(j)) {
                     sb.append(count);
                     sb.append(s.charAt(j - 1));
                     count = 1;

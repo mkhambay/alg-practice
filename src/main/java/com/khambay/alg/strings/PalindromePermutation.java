@@ -43,7 +43,7 @@ public class PalindromePermutation {
     /* Map each character to a number a = 0, b = 1, c = 2
      * Case insensitive
      * Non-letter maps to -1 */
-    int getCharNumber(Character c) {
+    int getCharNumber(char c) {
         int a = Character.getNumericValue('a');
         int z = Character.getNumericValue('z');
         int A = Character.getNumericValue('A');

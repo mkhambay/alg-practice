@@ -1,17 +1,13 @@
 package com.khambay.alg.strings;
 
-/**
- * This class tests strings if they are palindrome 
- * @author mandeepkhambay
- */
 public class Palindrome {
 
-  /**
-   * Method checks if the string is a palindrome
-   * @param String stringToCheck - string to check
-   * @return boolean - if its a palindrome
-   */
   public boolean isPalindrome(String stringToCheck) {
+
+    if(stringToCheck == null || stringToCheck.length() < 1) {
+      return true;
+    }
+
     stringToCheck = stringToCheck.replaceAll("[^a-zA-Z0-9]", "").toLowerCase();
 
     for(int i = 0, j = stringToCheck.length()-1; i < j; i++, j--) {

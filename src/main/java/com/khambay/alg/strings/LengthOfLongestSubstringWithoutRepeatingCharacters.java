@@ -1,4 +1,4 @@
-package com.khambay.alg.hashtable;
+package com.khambay.alg.strings;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -6,20 +6,21 @@ import java.util.Map;
 /**
  * Time and Space - O(n)
  */
-public class LengthOfLongestSubstring {
+public class LengthOfLongestSubstringWithoutRepeatingCharacters {
 
     public static int lengthOfLongestSubstring(String s) {
-        int n = s.length(), ans = 0;
+        int result = 0, i = 0;
         Map<Character, Integer> map = new HashMap<>(); // current index of character
+
         // try to extend the range [i, j]
-        for (int j = 0, i = 0; j < n; j++) {
+        for (int j = 0; j < s.length(); j++) {
             if (map.containsKey(s.charAt(j))) { //found repeating char, reset i
                 i = Math.max(map.get(s.charAt(j)), i);
             }
             map.put(s.charAt(j), j + 1);
-            ans = Math.max(ans, j + 1 - i); //substring - so + 1
+            result = Math.max(result, j + 1 - i); //substring - so + 1
         }
-        return ans;
+        return result;
     }
 
     public static void main(String[] args) {

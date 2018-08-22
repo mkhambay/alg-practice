@@ -19,25 +19,26 @@ public class BasicCalculatorII {
 
         for(int i = 0; i < s.length(); i++){
             if(Character.isDigit(s.charAt(i))) {
-                num = num * 10 + s.charAt(i) - '0'; //number can be multiple digits, ex. 20, that's why num * 10
+                num = num * 10 + s.charAt(i) - '0';
             }
 
-            //also go here if its the last digit
-            if((!Character.isDigit(s.charAt(i)) && ' ' != s.charAt(i)) //check for spaces
-                    || i == s.length() - 1) { //if its last digit
-                if(sign == '-') {
-                    stack.push(-num); //this gets processed later when we sum up all values on stack
+            if(i == s.length() - 1 //if its last digit, go here too
+                    || !Character.isDigit(s.charAt(i)) && s.charAt(i) != ' ') {
+                switch(sign) {
+                    case '-':
+                        stack.push(-num);
+                        break;
+                    case '+':
+                        stack.push(num);
+                        break;
+                    case '*':
+                        stack.push(stack.pop()*num);
+                        break;
+                    case '/':
+                        stack.push(stack.pop()/num);
+                        break;
                 }
-                if(sign == '+') { //puts the first digit in the stack as we start with default +, gets processed later when we sum up all values on stack
-                    stack.push(num);
-                }
-                if(sign == '*') {
-                    stack.push(stack.pop() * num); //operator precedence - for *, thats why pop from stack
-                }
-                if(sign == '/') {
-                    stack.push(stack.pop() / num); //operator precedence - for /, thats why pop from stack
-                }
-                sign = s.charAt(i); //this is really used for the next number as we start with default +
+                sign = s.charAt(i);
                 num = 0;
             }
         }
@@ -50,7 +51,7 @@ public class BasicCalculatorII {
     }
 
     public static void main(String[] args) {
-        String str1 = "5-2*2";
+        String str1 = "3+2*2";
         String str2 = " 3/2 ";
         String str3 = " 3+5 / 2 ";
         String str4 = "20*10";
