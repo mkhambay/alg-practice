@@ -15,6 +15,12 @@ public class Stack<T> {
 
     private Node<T> top;
 
+    public void push(T item) {
+        Node<T> t = new Node<>(item);
+        t.next = top;
+        top = t;
+    }
+
     public T pop() {
         if(top == null) {
             throw new EmptyStackException();
@@ -22,12 +28,6 @@ public class Stack<T> {
         T item = top.data;
         top = top.next;
         return item;
-    }
-
-    public void push(T item) {
-        Node<T> t = new Node<>(item);
-        t.next = top;
-        top = t;
     }
 
     public T peek() {

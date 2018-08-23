@@ -18,9 +18,7 @@ public class FixedMultiStack {
         }
         sizes[stackNumber]++;
         values[indexOfTop(stackNumber)] = value;
-
     }
-
 
     public int pop(int stackNumber) throws Exception {
         if(isEmpty(stackNumber)) {
@@ -33,12 +31,17 @@ public class FixedMultiStack {
         return value;
     }
 
-
     public int peek(int stackNumber) throws Exception {
         if(isEmpty(stackNumber)) {
             throw new Exception("Stack " + stackNumber + " Is Empty");
         }
         return values[indexOfTop(stackNumber)];
+    }
+
+    private int indexOfTop(int stackNumber) {
+        int offset = stackNumber * stackCapacity;
+        int size = sizes[stackNumber];
+        return offset + size - 1;
     }
 
     public boolean isFull(int stackNumber) {
@@ -60,12 +63,6 @@ public class FixedMultiStack {
             System.out.print(+ values[idx] + ", ");
         }
         System.out.println(values[values.length-1] + "]");
-    }
-
-    private int indexOfTop(int stackNumber) {
-        int offset = stackNumber * stackCapacity;
-        int size = sizes[stackNumber];
-        return offset + size - 1;
     }
 
     public static void main(String[] args) throws Exception {

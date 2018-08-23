@@ -3,60 +3,60 @@ package com.khambay.alg.queue;
 import java.util.EmptyStackException;
 import java.util.NoSuchElementException;
 
-public class MyQueue<T> {
+public class Queue<T> {
 
-    private static class QueueNode<T> {
+    private class Node<T> {
         private T data;
-        private QueueNode<T> next;
+        private Node<T> next;
 
-        public QueueNode(T data) {
+        public Node(T data) {
             this.data = data;
         }
     }
 
-    private QueueNode<T> first;
-    private QueueNode<T> last;
+    private Node<T> head;
+    private Node<T> tail;
 
     public void add(T item) {
-        QueueNode<T> t = new QueueNode<>(item);
+        Node<T> t = new Node<>(item);
 
-        if(last != null) {
-            last.next = t;
+        if(tail != null) {
+            tail.next = t;
         }
-        last = t;
+        tail = t;
 
-        if(first == null) {
-            first = last;
+        if(head == null) {
+            head = tail;
         }
     }
 
     public T remove() {
-        if(first == null) {
+        if(head == null) {
             throw new NoSuchElementException();
         }
-        T data = first.data;
-        first = first.next;
+        T data = head.data;
+        head = head.next;
 
-        if(first == null) {
-            last = null;
+        if(head == null) {
+            tail = null;
         }
         return data;
     }
 
 
     public T peek() {
-        if(first == null) {
+        if(head == null) {
             throw new EmptyStackException();
         }
-        return first.data;
+        return head.data;
     }
 
     public boolean isEmpty() {
-        return first == null;
+        return head == null;
     }
 
     public static void main(String[] args) {
-        MyQueue<Integer> myQueue = new MyQueue<>();
+        Queue<Integer> myQueue = new Queue<>();
         myQueue.add(1);
 
         Integer peek = myQueue.peek();
