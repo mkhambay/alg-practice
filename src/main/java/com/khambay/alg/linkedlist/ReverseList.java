@@ -13,17 +13,17 @@ public class ReverseList {
             return head;
         }
 
-        ListNode current = head;
-        ListNode previous = null;
+        ListNode curr = head;
+        ListNode prev = null;
         ListNode next = null;
 
-        while(current != null) {
-            next = current.next;
-            current.next = previous;
-            previous = current;
-            current = next;
+        while(curr != null) {
+            next = curr.next;
+            curr.next = prev;
+            prev = curr;
+            curr = next;
         }
-        head = previous;
+        head = prev;
         return head;
     }
 
