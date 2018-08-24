@@ -7,7 +7,7 @@ package com.khambay.alg.strings;
 public class StringStr {
 
     public static int strStr1(String haystack, String needle) {
-        if(needle == null || needle.length() < 1) {
+        if(needle == null || needle.length() < 1) { //when needle is empty, return starting index 0 and not -1
             return 0;
         }
 

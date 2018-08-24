@@ -13,7 +13,7 @@ public class MissingNumber {
             numSet.add(num);
         }
 
-        for(int number = 0; number < nums.length + 1; number++) {
+        for(int number = 0; number <= nums.length; number++) { // <= and not <
             if (!numSet.contains(number)) {
                 return number;
             }
@@ -30,24 +30,17 @@ public class MissingNumber {
         //sort it
         Arrays.sort(nums);
 
-        //Edge Case: 1
-        //Last number is not the length of the array
-        if(nums[nums.length-1] != nums.length) {
-            return nums.length;
-        }
-
-        //Edge Case: 2
-        //First number should 0
-        if(nums[0] != 0) {
-            return 0;
-        }
-
         //the missing number is between the first and last elements
-        //start array with index 1
-        for(int i = 1; i < nums.length; i++) {
-            int expectedNumber = nums[i-1] + 1;
-            if(nums[i] != expectedNumber) {
-                return expectedNumber;
+        //the number should match its index
+        for(int i = 0; i <= nums.length; i++) {
+
+            //Last number is not the length of the array
+            if(i == nums.length-1 && nums[i] != nums.length) {
+                return nums.length;
+            }
+
+            if(nums[i] != i) {
+                return i;
             }
         }
         return -1;

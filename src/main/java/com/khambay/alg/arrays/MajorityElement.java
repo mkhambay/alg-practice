@@ -25,21 +25,11 @@ public class MajorityElement {
 
     //////// Time and Space O(n)
 
-    private static Map<Integer, Integer> countNums(int[] nums) {
+    public static int majorityElementMap(int[] nums) {
         Map<Integer, Integer> counts = new HashMap<>();
         for (int num : nums) {
-            if (!counts.containsKey(num)) {
-                counts.put(num, 1);
-            }
-            else {
-                counts.put(num, counts.get(num)+1);
-            }
+            counts.put(num, counts.getOrDefault(num, 0)+1);
         }
-        return counts;
-    }
-
-    public static int majorityElementMap(int[] nums) {
-        Map<Integer, Integer> counts = countNums(nums);
 
         Map.Entry<Integer, Integer> majorityEntry = null;
         for (Map.Entry<Integer, Integer> entry : counts.entrySet()) {
