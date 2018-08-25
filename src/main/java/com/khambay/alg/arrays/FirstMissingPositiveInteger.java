@@ -1,7 +1,8 @@
 package com.khambay.alg.arrays;
 
 /**
- * First Missing Smallest Positive Integer
+ * First Missing Smallest Positive Integer - includes sorting by putting the value in the right index
+ * value in num == index of num + 1
  * Time - O(n)
  * Space - O(1)
  */

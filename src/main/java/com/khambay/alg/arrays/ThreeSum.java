@@ -5,7 +5,8 @@ import java.util.Arrays;
 import java.util.List;
 
 /**
- * Time - O(n^2)
+ * Time - O(n^2) - 3 pointers i, j, k
+ * Sort it first
  * Space - O(n)
  */
 public class ThreeSum {
@@ -16,6 +17,7 @@ public class ThreeSum {
         if(nums == null || nums.length < 3)
             return result;
 
+        //Need to sort ascending for processing duplicates
         Arrays.sort(nums);
 
         for(int i = 0; i < nums.length - 2; i++) { //with j and k pointers - 2 for i
@@ -27,17 +29,19 @@ public class ThreeSum {
                 int k = nums.length - 1;
 
                 while(j < k) {
-                    if(nums[i] + nums[j] + nums[k] == 0) {
-                        List<Integer> l = new ArrayList<>();
-                        l.add(nums[i]);
-                        l.add(nums[j]);
-                        l.add(nums[k]);
-                        result.add(l);
+                    int sum = nums[i] + nums[j] + nums[k];
+
+                    if(sum == 0) {  //found result
+                        List<Integer> triplets = new ArrayList<>();
+                        triplets.add(nums[i]);
+                        triplets.add(nums[j]);
+                        triplets.add(nums[k]);
+                        result.add(triplets);
 
                         j++;
                         k--;
 
-                        //handle duplicate here
+                        //handle duplicate - if the new j or k values are same as the prev value just processed
                         while(j < k && nums[j] == nums[j - 1])
                             j++;
 
@@ -45,7 +49,7 @@ public class ThreeSum {
                             k--;
 
                     }
-                    else if(nums[i] + nums[j] + nums[k] < 0) { //array is sorted. If total <0, we need to move j up to next higher value
+                    else if(sum < 0) { //array is sorted. If total <0, we need to move j up to next higher value
                         j++;
                     }
                     else { //array is sorted ascending. k-- as total is already greater than 0. We need to get closer to 0.

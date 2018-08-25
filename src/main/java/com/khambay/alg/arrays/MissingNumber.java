@@ -32,7 +32,7 @@ public class MissingNumber {
 
         //the missing number is between the first and last elements
         //the number should match its index
-        for(int i = 0; i <= nums.length; i++) {
+        for(int i = 0; i <= nums.length; i++) { // <= and not <
 
             //Last number is not the length of the array
             if(i == nums.length-1 && nums[i] != nums.length) {

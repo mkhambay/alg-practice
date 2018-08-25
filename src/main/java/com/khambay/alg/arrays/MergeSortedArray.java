@@ -1,6 +1,7 @@
 package com.khambay.alg.arrays;
 
 /**
+ * Same as SortedMerge question
  * Time - O(mn)
  * Space - O(1)
  */
@@ -11,18 +12,16 @@ public class MergeSortedArray {
         int j = n - 1; //pointer pointing to last element of nums2
         int k = m + n - 1; //pointer pointing to last element of merged array
 
-        while(k >= 0) {
-            if(j < 0  //All of nums2 has been exhausted setting j to -1. Always go into the if condition and don't do the compare as it will give Array out of bounds.
-                    || i >= 0 && nums1[i] > nums2[j]) {
+        while(j >= 0) { //running over the smaller array
+            if(i >= 0 && nums1[i] > nums2[j]) { //will also come here when smaller array has been exhausted j == 0
                 nums1[k] = nums1[i];
                 i--;
-                k--;
             }
             else {
                 nums1[k] = nums2[j];
                 j--;
-                k--;
             }
+            k--;
         }
     }
 

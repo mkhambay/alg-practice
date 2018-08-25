@@ -1,6 +1,7 @@
 package com.khambay.alg.arrays;
 
 /**
+ * Like MaximumSubArray
  * Time - O(n)
  * Space - O(1)
  */

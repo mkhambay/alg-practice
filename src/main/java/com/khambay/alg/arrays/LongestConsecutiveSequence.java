@@ -9,28 +9,27 @@ import java.util.Set;
 public class LongestConsecutiveSequence {
 
     public static int longestConsecutive(int[] nums) {
-        Set<Integer> num_set = new HashSet<>(); //to allow O(1) lookups
+        Set<Integer> numsSet = new HashSet<>(); //to allow O(1) lookups
         for (int num : nums) {
-            num_set.add(num);
+            numsSet.add(num);
         }
 
-        int longestStreak = 0;
+        int maxLength = 0;
 
-        for (int num : num_set) {
-            if (!num_set.contains(num-1)) {
+        for (int num : numsSet) {
+            if (!numsSet.contains(num-1)) {
                 int currentNum = num;
-                int currentStreak = 1;
+                int length = 1;
 
-                while (num_set.contains(currentNum+1)) {
+                while (numsSet.contains(currentNum+1)) {
                     currentNum++;
-                    currentStreak++;
+                    length++;
                 }
 
-                longestStreak = Math.max(longestStreak, currentStreak);
+                maxLength = Math.max(maxLength, length);
             }
         }
-
-        return longestStreak;
+        return maxLength;
     }
 
     public static void main(String[] args) {

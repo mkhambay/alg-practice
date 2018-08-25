@@ -9,12 +9,7 @@ import java.util.List;
 public class MissingRanges {
 
     public static List<String> findMissingRanges(int[] nums, int lo, int hi) {
-        List<String> res = new ArrayList<>();
-
-        //overflow check
-        if(lo == Integer.MAX_VALUE) {
-            return res;
-        }
+        List<String> result = new ArrayList<>();
 
         // the next number we need to find
         int next = lo;
@@ -26,6 +21,11 @@ public class MissingRanges {
                 continue;
             }
 
+            //overflow check
+            if(next == Integer.MAX_VALUE) {
+                return result;
+            }
+
             // continue to find the next one
             if (nums[i] == next) {
                 next++;
@@ -33,11 +33,11 @@ public class MissingRanges {
             }
 
             // get the missing range string format
-            res.add(getRange(next, nums[i] - 1));
+            result.add(getRange(next, nums[i] - 1));
 
             //overflow check
             if(nums[i] == Integer.MAX_VALUE) {
-                return res;
+                return result;
             }
 
             // now we need to find the next number
@@ -46,10 +46,10 @@ public class MissingRanges {
 
         // do a final check
         if (next <= hi) {
-            res.add(getRange(next, hi));
+            result.add(getRange(next, hi));
         }
 
-        return res;
+        return result;
     }
 
     static String getRange(int n1, int n2) {
