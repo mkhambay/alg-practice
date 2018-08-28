@@ -19,9 +19,7 @@ public class Vector2D implements Iterator<Integer> {
 
     @Override
     public Integer next() {
-        hasNext();
         return j.next();
-
     }
 
     @Override
