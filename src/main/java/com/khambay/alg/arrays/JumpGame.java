@@ -7,6 +7,10 @@ package com.khambay.alg.arrays;
 public class JumpGame {
 
     public static boolean canJump(int[] nums) {
+        if(nums == null || nums.length < 1) {
+            return true;
+        }
+
         int lastPos = nums.length - 1;
         for (int i = nums.length - 1; i >= 0; i--) {
             if (i + nums[i] >= lastPos) {

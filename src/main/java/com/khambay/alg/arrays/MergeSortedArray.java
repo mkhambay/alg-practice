@@ -2,7 +2,7 @@ package com.khambay.alg.arrays;
 
 /**
  * Same as SortedMerge question
- * Time - O(mn)
+ * Time - O(m+n)
  * Space - O(1)
  */
 public class MergeSortedArray {
