@@ -15,6 +15,13 @@ public class Stack<T> {
 
     private Node<T> top;
 
+    public Stack() {}
+
+    public Stack(T item) {
+        Node<T> t = new Node<>(item);
+        top = t;
+    }
+
     public void push(T item) {
         Node<T> t = new Node<>(item);
         t.next = top;
