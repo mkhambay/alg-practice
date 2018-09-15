@@ -8,13 +8,13 @@ import java.util.ArrayList;
  */
 public class HashTableCustom<K, V> {
 
-    private static class LinkedListNode<K, V> {
-        public LinkedListNode<K, V> next;
-        public LinkedListNode<K, V> prev;
-        public K key;
-        public V value;
+    class Node<K, V> {
+        K key;
+        V value;
+        Node<K, V> next;
+        Node<K, V> prev;
 
-        public LinkedListNode(K k, V v) {
+        public Node(K k, V v) {
             key = k;
             value = v;
         }
@@ -29,7 +29,7 @@ public class HashTableCustom<K, V> {
         }
     }
 
-    private ArrayList<LinkedListNode<K, V>> arr;
+    ArrayList<Node<K, V>> arr;
 
     public HashTableCustom(int capacity) {
         /* Create list of linked lists. */
@@ -40,8 +40,14 @@ public class HashTableCustom<K, V> {
         }
     }
 
+    public V get(K key) {
+        if (key == null) return null;
+        Node<K, V> node = getNodeForKey(key);
+        return node == null ? null : node.value;
+    }
+
     public V put(K key, V value) {
-        LinkedListNode<K, V> node = getNodeForKey(key);
+        Node<K, V> node = getNodeForKey(key);
 
         //UPDATE
         if (node != null) {
@@ -51,21 +57,21 @@ public class HashTableCustom<K, V> {
         }
 
         //INSERT
-        node = new LinkedListNode<>(key, value);
+        node = new Node<>(key, value);
         int index = getIndexForKey(key);
-        if (arr.get(index) != null) {
+        if (arr.get(index) != null) { //existing node, add to head
             //add node to head
             node.next = arr.get(index);
             node.next.prev = node;
         }
         //set head
-        arr.set(index, node);
+        arr.set(index, node); //does a set and not an add - set replaces
         return null;
     }
 
     /* Remove node for key. */
     public V remove(K key) {
-        LinkedListNode<K, V> node = getNodeForKey(key);
+        Node<K, V> node = getNodeForKey(key);
         if (node == null) {
             return null;
         }
@@ -88,15 +94,14 @@ public class HashTableCustom<K, V> {
         return node.value;
     }
 
-    public V get(K key) {
-        if (key == null) return null;
-        LinkedListNode<K, V> node = getNodeForKey(key);
-        return node == null ? null : node.value;
+    private int getIndexForKey(K key) {
+        return Math.abs(key.hashCode() % arr.size());
     }
 
-    private LinkedListNode<K, V> getNodeForKey(K key) {
+    private Node<K, V> getNodeForKey(K key) {
         int index = getIndexForKey(key);
-        LinkedListNode<K, V> current = arr.get(index);
+        Node<K, V> current = arr.get(index);
+
         while (current != null) {
             if (current.key == key) {
                 return current;
@@ -104,15 +109,6 @@ public class HashTableCustom<K, V> {
             current = current.next;
         }
         return null;
-    }
-
-    /**
-     * Returns 0, 1, or 2
-     * @param key
-     * @return
-     */
-    public int getIndexForKey(K key) {
-        return Math.abs(key.hashCode() % arr.size());
     }
 
     public void printTable() {
