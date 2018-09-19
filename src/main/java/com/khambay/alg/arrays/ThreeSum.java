@@ -23,7 +23,7 @@ public class ThreeSum {
         for(int i = 0; i < nums.length - 2; i++) { //with j and k pointers - 2 for i
 
             if(i == 0 // first iteration
-                    || nums[i] > nums[i - 1] //only if numbers are ascending and not duplicate
+                    || nums[i] != nums[i - 1] //not duplicate - not same as prev
                     ) {
                 int j = i + 1;
                 int k = nums.length - 1;

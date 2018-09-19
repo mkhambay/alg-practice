@@ -64,5 +64,9 @@ public class MissingRanges {
         int[] nums1 = {2147483647};
         List<String> missingRanges1 = findMissingRanges(nums1, 0, 2147483647);
         System.out.println("Missing Ranges 1 = " + missingRanges1);
+
+        int[] nums2 = {1,1,1};
+        List<String> missingRanges2 = findMissingRanges(nums2, 1, 1);
+        System.out.println("Missing Ranges 2 = " + missingRanges2);
     }
 }
