@@ -60,7 +60,7 @@ public class NestedIterator implements Iterator<Integer> {
 
     @Override
     public Integer next() {
-        if(!stack.isEmpty()) {
+        if(hasNext()) {
             return stack.pop().getInteger();
         }
         else {
