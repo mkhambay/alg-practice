@@ -17,7 +17,7 @@ public class Queue<T> {
     private Node<T> head;
     private Node<T> tail;
 
-    public void add(T item) {
+    public void push(T item) {
         Node<T> t = new Node<>(item);
 
         if(tail != null) {
@@ -30,7 +30,7 @@ public class Queue<T> {
         }
     }
 
-    public T remove() {
+    public T pop() {
         if(head == null) {
             throw new NoSuchElementException();
         }
@@ -57,7 +57,7 @@ public class Queue<T> {
 
     public static void main(String[] args) {
         Queue<Integer> myQueue = new Queue<>();
-        myQueue.add(1);
+        myQueue.push(1);
 
         Integer peek = myQueue.peek();
         System.out.println("Peek = " + peek);
@@ -65,7 +65,7 @@ public class Queue<T> {
         Boolean isEmpty = myQueue.isEmpty();
         System.out.println("isEmpty = " + isEmpty);
 
-        myQueue.remove();
+        myQueue.pop();
 
         isEmpty = myQueue.isEmpty();
         System.out.println("isEmpty = " + isEmpty);
