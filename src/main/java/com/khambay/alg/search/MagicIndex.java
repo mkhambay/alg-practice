@@ -1,4 +1,4 @@
-package com.khambay.alg.recursion;
+package com.khambay.alg.search;
 
 public class MagicIndex {
 

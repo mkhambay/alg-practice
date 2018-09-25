@@ -15,18 +15,19 @@ public class PermutationsStringsWithDups {
         return map;
     }
 
-    public static void printPerms(Map<Character, Integer> map, String prefix, String s, List<String> result) {
-        if (prefix.length() == s.length()) {
-            result.add(prefix);
+    public static void printPerms(Map<Character, Integer> map, StringBuilder sb, String s, List<String> result) {
+        if (sb.length() == s.length()) {
+            result.add(sb.toString());
             return;
         }
 
         for (Character c : map.keySet()) {
             int count = map.get(c);
             if (count > 0) {
-                map.put(c,  count - 1);
-                printPerms(map, prefix + c, s, result);
-                map.put(c,  count);
+                map.put(c, count - 1);
+                printPerms(map, sb.append(c), s, result);
+                sb.deleteCharAt(sb.length() - 1);
+                map.put(c, count);
             }
         }
     }
@@ -34,7 +35,7 @@ public class PermutationsStringsWithDups {
     public static List<String> printPerms(String s) {
         List<String> result = new ArrayList<>();
         Map<Character, Integer> map = buildFreqTable(s);
-        printPerms(map, "", s, result);
+        printPerms(map, new StringBuilder(), s, result);
         return result;
     }
 
