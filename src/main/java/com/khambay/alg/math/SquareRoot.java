@@ -1,4 +1,4 @@
-package com.khambay.alg.search;
+package com.khambay.alg.math;
 
 /**
  * Time - O(logn) - Binary Search
@@ -10,18 +10,18 @@ public class SquareRoot {
         if (x == 0 || x == 1)
             return x;
 
-        int start = 1;
-        int end = x;
+        int low = 1;
+        int high = x;
         int result = 0;
 
-        while (start <= end) {
-            int mid = start + ((end - start) / 2);
+        while (low <= high) {
+            int mid = low + ((high - low) / 2);
 
             if (mid <= x/mid) { //go right
-                start = mid + 1;
+                low = mid + 1;
                 result = mid; //capture result
             } else {
-                end = mid - 1; //go left
+                high = mid - 1; //go left
             }
         }
         return result;

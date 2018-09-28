@@ -18,7 +18,7 @@ public class FindPeakElement {
         int mid = (low + high) / 2;
 
         if (nums[mid] > nums[mid + 1]) { //search left as the right side is sloping down
-            return search(nums, low, mid); // note - we don't do mid - 1 as in regular binary search
+            return search(nums, low, mid); // note - we don't do mid - 1 as in regular binary search, with this low == high
         }
         else {
             return search(nums, mid + 1, high); //search right
