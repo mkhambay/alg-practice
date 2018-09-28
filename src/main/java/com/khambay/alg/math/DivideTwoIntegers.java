@@ -43,6 +43,7 @@ public class DivideTwoIntegers {
     }
 
     public static void main(String[] args) {
+        System.out.println("dividend = 10, divisor = 3  Output = " + divide(10, 3));
         System.out.println("dividend = 15, divisor = 3  Output = " + divide(15, 3));
         System.out.println("dividend = 7, divisor = -3  Output = " + divide(7, -3));
     }

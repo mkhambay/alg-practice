@@ -31,6 +31,7 @@ public class SquareRoot {
     public static void main(String[] args) {
         System.out.println("Sqrt of 4 = " + floorSqrt(4));
         System.out.println("Sqrt of 8 = " + floorSqrt(8));
+        System.out.println("Sqrt of 5 = " + floorSqrt(5));
         System.out.println("Sqrt of 64 = " + floorSqrt(64));
     }
 }

@@ -16,7 +16,7 @@ public class Pow {
 
         for (int pow = n; pow > 0; pow /= 2) {
             if ((pow % 2) == 1) { //if power is odd ex. 3 or it started with 4 and each time dividing by 2 will leave 1
-                result = result * product;
+                result = result * product; //result is multiplied for odd powers, ex pow 3
             }
             product = product * product;
         }
