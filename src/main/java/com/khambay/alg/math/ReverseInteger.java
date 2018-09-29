@@ -9,7 +9,7 @@ public class ReverseInteger {
     public static int reverse(int x) {
         int result = 0;
 
-        while (x != 0) {
+        while (x != 0) { // note - since x can be negative number, we are not checking x >= 0
             int digit = x % 10;
 
             if (Math.abs(result) > Integer.MAX_VALUE / 10) {

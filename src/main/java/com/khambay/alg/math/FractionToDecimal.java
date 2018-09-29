@@ -40,7 +40,7 @@ public class FractionToDecimal {
         HashMap<Long, Integer> map = new HashMap<>();
         map.put(num, res.length());
 
-        while (num != 0) {
+        while (num != 0) { //sign agnostic and that's why num != 0 and not num >= 0
             num *= 10;
             res.append(num / den);
             num %= den;
