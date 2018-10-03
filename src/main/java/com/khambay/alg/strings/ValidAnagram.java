@@ -1,9 +1,10 @@
-package com.khambay.alg.sorting;
+package com.khambay.alg.strings;
 
 import java.util.Arrays;
 
 /**
  * Similar to StringPermutation solution
+ * https://leetcode.com/problems/valid-anagram/description/
  */
 public class ValidAnagram {
 
