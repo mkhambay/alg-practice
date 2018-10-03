@@ -35,7 +35,7 @@ public class LetterCombinationsPhoneNumber {
 
     public static void buildCombinations(List<String> result, StringBuilder temp, String digits, int start, HashMap<Character, String> map){
         //Base case
-        if(start == digits.length()) {
+        if(temp.length() == digits.length()) {
             result.add(temp.toString());
             return;
         }
