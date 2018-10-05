@@ -24,7 +24,7 @@ public class Vector2D implements Iterator<Integer> {
 
     @Override
     public boolean hasNext() {
-        while((j == null || !j.hasNext()) && i.hasNext()) {
+        while((j == null || !j.hasNext()) && i.hasNext()) { //its a while and not an if. i.next().iterator() could be null value, we need to keep going
             j = i.next().iterator();
         }
         return j != null && j.hasNext();

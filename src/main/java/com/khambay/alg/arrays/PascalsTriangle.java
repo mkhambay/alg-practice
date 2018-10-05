@@ -27,7 +27,7 @@ public class PascalsTriangle {
             //first element
             row.add(1);
 
-            for(int j = 1; j < rowNum; j++) { //will not enter here for row 1
+            for(int j = 1; j < prevRow.size(); j++) { //will not enter here for row 1
                 row.add(prevRow.get(j-1) + prevRow.get(j));
             }
 
