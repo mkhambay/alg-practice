@@ -1,13 +1,16 @@
 package com.khambay.alg.arrays;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 /**
- * https://leetcode.com/problems/intersection-of-two-arrays/description/
+ * https://leetcode.com/problems/intersection-of-two-arrays-ii/description/
  * Time - O(m+n)
  * Space - O(n)
  */
-public class IntersectionOf2Arrays {
+public class IntersectionOf2ArraysII {
 
     public static int[] intersect(int[] nums1, int[] nums2) {
 
@@ -15,30 +18,28 @@ public class IntersectionOf2Arrays {
             return new int[0];
         }
 
-        Set<Integer> result = new HashSet<>();
-
+        //Map of Nums and Count
         Map<Integer, Integer> map = new HashMap<>();
+        List<Integer> result = new ArrayList<>();
 
-        for(int num : nums1) {
-            map.put(num, map.getOrDefault(num, 0)+1);
+        for(int i = 0; i < nums1.length; i++) {
+            map.put(nums1[i], map.getOrDefault(nums1[i], 0) + 1);
         }
 
-        for(int num : nums2) {
-            if(map.containsKey(num) && map.get(num) > 0) {
-                result.add(num);
-                map.put(num, map.get(num)-1);
+        for(int i = 0; i < nums2.length; i++) {
+            if(map.containsKey(nums2[i]) && map.get(nums2[i]) > 0) {
+                result.add(nums2[i]);
+                map.put(nums2[i], map.get(nums2[i]) - 1);
             }
         }
 
-        //convert to array
-        int[] resultArray = new int[result.size()];
-        int i = 0;
-        for(int num : result) {
-            resultArray[i] = num;
-            i++;
+        //Convert result to int array
+        int[] r = new int[result.size()];
+        for(int i = 0; i < result.size(); i++) {
+            r[i] = result.get(i);
         }
 
-        return resultArray;
+        return r;
     }
 
     public static void printArray(int[] arr) {
