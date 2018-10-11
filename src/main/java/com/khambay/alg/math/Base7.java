@@ -1,5 +1,11 @@
 package com.khambay.alg.math;
 
+/**
+ * https://leetcode.com/problems/base-7/description/
+ *
+ * Time - O(n)
+ * Space - O(1)
+ */
 public class Base7 {
 
     public static String base7(int num) {
