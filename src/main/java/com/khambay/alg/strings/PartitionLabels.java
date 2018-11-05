@@ -26,7 +26,7 @@ public class PartitionLabels {
         for(int i = 0; i < S.length(); i++) {
             last = Math.max(last, map[S.charAt(i)-'a']);
 
-            if(last == i){
+            if(last == i) { //if index matches last index of character, its the result ex. a = 8, 8 - 0 + 1 = 9
                 result.add(last - start + 1);
                 start = last + 1;
             }
