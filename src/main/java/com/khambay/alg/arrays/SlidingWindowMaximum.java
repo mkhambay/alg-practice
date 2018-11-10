@@ -1,6 +1,7 @@
 package com.khambay.alg.arrays;
 
 /**
+ * https://leetcode.com/problems/sliding-window-maximum/discuss/65881/O(n)-solution-in-Java-with-two-simple-pass-in-the-array
  * Time - O(n)
  */
 public class SlidingWindowMaximum {
