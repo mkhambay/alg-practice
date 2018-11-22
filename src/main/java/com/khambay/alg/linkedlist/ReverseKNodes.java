@@ -20,7 +20,7 @@ public class ReverseKNodes {
             count++;
         }
 
-        if (count == k) { //reverse it
+        if (count == k) { //reverse it only if we have enough nodes to reverse, otherwise it remains unchanged.
             ListNode prev = reverseKGroup(curr, k); // prev gets fed in from the recursion
 
             //Below code same as ReverseList

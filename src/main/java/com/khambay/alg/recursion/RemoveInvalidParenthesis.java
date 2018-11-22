@@ -22,17 +22,17 @@ public class RemoveInvalidParenthesis {
             if (s.charAt(i) == par[0]) stack++;
             if (s.charAt(i) == par[1]) stack--;
             if (stack >= 0) {
-                continue; //matches
+                continue; //matches and the return below is never reached if all matched up fine
             }
 
             for (int j = jStart; j <= i; j++) { //when mis-match found
                 if (s.charAt(j) == par[1]
-                        && (j == jStart || s.charAt(j - 1) != par[1])) //not duplicate
+                        && (j == jStart || s.charAt(j - 1) != s.charAt(j))) //not duplicate
                     remove(s.substring(0, j) //removes char at j
                             + s.substring(j + 1, s.length()), result, i, j, par);
             }
 
-            return; //once all done
+            return; //once all processing is done
         }
 
         String reversed = new StringBuilder(s).reverse().toString();
